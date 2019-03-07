@@ -25,9 +25,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "devDependencies": {
-    "babel-jest": "^24.3.0",
-    "jest": "^24.3.0"
-  }
+  ]
 }
