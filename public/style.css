@@ -4,14 +4,22 @@ html {
   width: 100%;
 }
 
+* {
+  font-family: 'Fira Mono', monospace;
+}
+
 body {
   width: 100%;
   height: 100%;
-  font-family: 'Fira Mono', monospace;
   color: var(--fg);
   margin: 0;
-  display: grid;
   background: var(--bg);
+}
+
+#root {
+  height:100%;
+  width:100%;
+  display: grid;
   grid-template-areas: 'header header header'
     'lessons vim hints'
     'footer footer footer';
@@ -21,6 +29,7 @@ body {
   grid-auto-columns: 0px;
   overflow-y: hidden;
   overflow-x: hidden;
+
 }
 
 main#resources ul {
@@ -186,6 +195,23 @@ a {
 }
 
 a:hover {
+  color: var(--accent);
+}
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: var(--link);
+  font-size: 1em;
+
+}
+
+.link-button:hover {
   color: var(--accent);
 }
 
