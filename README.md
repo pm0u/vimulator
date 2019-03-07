@@ -1,68 +1,26 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+~~## 1. Minesweeper~~
 
-## Available Scripts
+~~This would be a webpage that is similar to/a clone of the classic minesweeper game. There are other HTML/CSS minesweeper clones around, most of them employ tables or images to accomplish the board. I would like to create a minesweeper clone written in pure CSS grid, without using tables or images (so that it is light). The logic would be handled in javascript and layout in CSS/CSS grid/HTML. An additional challenge could be a different style game, where minesweeper is merged with a tile sliding style game and you are able to move 3x3 squares of tiles around the board. These would respond to their new location and display numbers of bordering mines as they are moved. Local storage will be used to record name and high scores.~~
 
-In the project directory, you can run:
+## 2. Vim tutor
 
-### `npm start`
+This would be a vim shortcut tutor similar to CSS diner that would help to teach vim shortcuts/commands. It would offer text content (single or multi line) and ask the user to accomplish a task on the content. It could start with simple things (exiting vim!!) and move to more advanced uses such as registers, search and replace, etc. There are other vim tutors around, but I don't believe they offer enough repetition. Also, asking the user to save/quit their changes at the end of every level will help reinforce some of the most important shortcuts. It will be open source and if i make it simple to script lessons, long term it would be great if people contributed additional lessons to expand the game (through pull requests on github). Local storage will be employed to record username and completed levels so that the game can be picked back up when the page is revisited. An endurance mode would be great, that would throw random levels at the user to reinforce what has been learned. Logic in javascript, layout and content in CSS grid and HTML.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Planning
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+I have chosen to go with creating a VIM tutor website. I will be utilizing Trello for project planning. The project can be viewed [here](https://trello.com/b/fip80Dmf/q1-proj-vimdicator).
 
-### `npm test`
+### Style Guide
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I would like the website to mimic the look of vim in the terminal as much as possible. This will help new users become comfortable with real vim more readily and is something other vim tutors lack. With this in mind, styling will be minimal. In vim, any lines or divisions are provided by text characters. The font used will be Fira Mono -- I chose this font because it is a free font that new users could implement in their own terminals and because in code editing it is important to use a monospace font. This font will contribute to the terminal feel/aesthetic. Colors will be minimal, as it is meant to look like a terminal. I would like to use the palette provided by [solarized light by Ethan Schoonover](https://ethanschoonover.com/solarized/). I have found this to be a very approachable color scheme that is easy to read and is well accepted among experienced coders. This will help introduce new users to customizing their own terminal experience.
 
-### `npm run build`
+![Wireframe of webpage](https://image.ibb.co/jRO8L0/vim-wireframe.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![style guide](https://vectr.com/tmp/b75ezVFRh/c49lkfH0h.png?width=640&height=640&select=c49lkfH0hpage0)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### MVP / proof of concept
 
-### `npm run eject`
+The current proof of concept is live at http://vimulator.surge.sh/html/index.html
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+there is admittedly still a lot to be done to make it efficient and viable.
