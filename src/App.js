@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from './Components/Header'
-import Lessons from './Components/Lessons'
+import LessonList from './Components/LessonList'
 import VimArea from './Components/VimArea'
 import Hints from './Components/Hints'
 import Footer from './Components/Footer'
@@ -10,7 +10,7 @@ export class App extends Component {
         return (
             <>
                 <Header />
-                <Lessons />
+                <LessonList />
                 <VimArea />
                 <Hints />
                 <Footer />
