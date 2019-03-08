@@ -6,7 +6,7 @@ cache:
     - node_modules
 script:
   - npm test
-  - npm travis-deploy
+  - npm run travis-deploy
 deploy:
   provider: surge
   skip_cleanup: true
