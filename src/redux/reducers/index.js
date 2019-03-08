@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 import units from './unitsReducer'
-import currentUnit from './currentUnit'
+import currentLesson from './currentLesson'
 
-export default combineReducers({ units, currentUnit })
+export default combineReducers({ units, currentLesson })
