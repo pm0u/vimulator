@@ -1,6 +1,4 @@
-[![Build Status](https://travis-ci.com/pm0u/vimulator.svg?branch=master)](https://travis-ci.com/pm0u/vimulator)
-
-## Vimulator 2: Judgement Day
+## Vimulator 2: Judgement Day [![Build Status](https://travis-ci.com/pm0u/vimulator.svg?branch=master)](https://travis-ci.com/pm0u/vimulator)
 Vimulator was my Q1 project and I think it could be adapted to be a useful teaching tool that is supported by the community using it.
 
 Vim is a console based text editor that uses advanced keyboard shortcuts to increase efficiency. Most people within software development will encounter Vim at some point, usually inadvertently, and be stuck not knowing how it works. Additionally, these shortcuts help promote good typing habits and are available across a wide range of applications and text editors to keep key functionality consistent across multiple applications. Vimulator will help to educate and train users in Vim's keyboard shortcuts and functionality, thereby removing the large wall that exists when being overwhelmed by the extreme possibilities.
