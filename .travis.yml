@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm test
+  - npm travis-deploy
+deploy:
+  provider: surge
+  skip_cleanup: true
+  domain: vimulator2.surge.sh
+  project: ./build/
+on:
+  branch: master
