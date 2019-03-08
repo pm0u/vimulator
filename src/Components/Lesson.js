@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { changeCurrentLesson } from '../redux/actions/currentUnit'
+import { changeCurrentLesson } from '../redux/actions/currentLesson'
 import { bindActionCreators } from 'redux'
 
 export class Lesson extends Component {
