@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/pm0u/vimulator.svg?branch=master)](https://travis-ci.com/pm0u/vimulator)
+
 ## Vimulator 2: Judgement Day
 Vimulator was my Q1 project and I think it could be adapted to be a useful teaching tool that is supported by the community using it.
 
