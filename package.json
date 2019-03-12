@@ -19,6 +19,11 @@
     "travis-deploy": "npm run build && mv build/index.html build/200.html && surge build",
     "eject": "react-scripts eject"
   },
+    "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -29,6 +34,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "babel-plugin-wildcard": "^5.0.0",
     "enzyme": "^3.9.0",
     "redux-devtools-extension": "^2.13.8",
     "surge": "^0.20.1"

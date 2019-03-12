@@ -1,6 +1,6 @@
-export const CHANGE_CURRENT_LESSON = 'CHANGE_CURRENT_LESSON'
+import * as types from '../constants/actionTypes'
 
 export const changeCurrentLesson = (lessonId) => ({
-  type: CHANGE_CURRENT_LESSON,
+  type: types.CHANGE_CURRENT_LESSON,
   lessonId
 })
