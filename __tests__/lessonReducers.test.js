@@ -1,4 +1,4 @@
-import * as types from '../src/redux/constants/actionTypes'
+import * as types from '../src/redux/constants/currentLessonActions'
 import reducer from '../src/redux/reducers/currentLesson'
 import { unit1 } from '../src/Vim/units'
 

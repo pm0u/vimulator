@@ -1,5 +1,5 @@
 import { unit1 } from '../../Vim/units'
-import * as types from '../constants/actionTypes'
+import * as types from '../constants/currentLessonActions'
 
 const initialState = null
 

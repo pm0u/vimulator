@@ -1,0 +1,1 @@
+export const CHANGE_CURSOR_POS = 'CHANGE_CURSOR_POS'
