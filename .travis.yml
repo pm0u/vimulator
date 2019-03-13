@@ -8,7 +8,14 @@ script:
   - npm test
   - npm build
 deploy:
-  provider: surge
-  skip_cleanup: true
-  domain: vimulator2.surge.sh
-  project: ./build/
+  - provider: surge
+    skip_cleanup: true
+    domain: vimulator2.surge.sh
+    project: ./build/
+    on:
+      branch: master
+  - provider: surge
+    skip_cleanup: true
+    domain: vimulator2-test.surge.sh
+    project: ./build/
+  
