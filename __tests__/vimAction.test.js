@@ -27,7 +27,7 @@ describe('vim actions', () => {
             const row = 3
             const expectedAction = {
                 type: types.CHANGE_CURSOR_POS,
-                row
+                position: {row}
             }
             store.dispatch(actions.changeCursorRow(row, unit1.lessons[0]))
             const storeActions = store.getActions()
@@ -54,7 +54,7 @@ describe('vim actions', () => {
             const col = 5
             const expectedAction = {
                 type: types.CHANGE_CURSOR_POS,
-                col,
+                position: {col} ,
                 furthestCol: col
             }
             store.dispatch(actions.changeCursorCol(col, unit1.lessons[0]))
@@ -83,7 +83,7 @@ describe('vim actions', () => {
             const expectedAction =
                 {
                     type: types.CHANGE_CURSOR_POS,
-                    col: 21,
+                    position: {col: 21},
                     furthestCol: 21
                 }
 

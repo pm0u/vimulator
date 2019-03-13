@@ -3,13 +3,17 @@ import { connect } from 'react-redux'
 import { changeCurrentLesson } from '../redux/actions/currentLesson'
 import { bindActionCreators } from 'redux'
 import { grandMasterWizardKeyHandler } from '../Vim/grandMasterWizardKeyHandler'
+import store from '../redux/store'
 
 export class Lesson extends Component {
   startLesson = () => {
     this.props.changeCurrentLesson(this.props.lesson.id)
     document.addEventListener('keydown', (e) => {
       console.log(e.key, 'pressed')
-      grandMasterWizardKeyHandler(e.key)
+      const keys = store.getState().currentLesson.keys
+      const mode = store.getState().vim.mode
+      const actions = grandMasterWizardKeyHandler(e.key, keys, mode)
+      if (actions) store.dispatch(actions.action(...actions.params))
     })
   }
   render() {

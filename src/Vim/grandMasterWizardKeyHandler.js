@@ -1,24 +1,29 @@
-import reduxStore from '../redux/store'
 import * as actions from '../redux/actions/vim'
 
-export const grandMasterWizardKeyHandler = (key, store = reduxStore) => {
+export const grandMasterWizardKeyHandler = (key, keys, mode) => {
     // the grandMasterWizardKeyHandler decreeth:
     // let the keyboard do things!
     // huzzah!
-    const storeState = store.getState()
-    const keys = storeState.currentLesson.keys
     switch (keys[key] && key) {
         case 'h':
-            const col = storeState.vim.cursorPos.col - 1
-            if (storeState.vim.mode === 'NORMAL') {
-                store.dispatch(actions.changeCursorCol(col, storeState.currentLesson))
+            if (mode === 'NORMAL') {
+                return { action:actions.changeCursorCol , params:[-1] }
             }
             break
         case 'l':
+            if (mode === 'NORMAL') {
+                return { action:actions.changeCursorCol , params:[1] }
+            }
             break
         case 'j':
+            if (mode === 'NORMAL') {
+                return { action:actions.changeCursorRow , params:[1] }
+            }
             break
         case 'k':
+            if (mode === 'NORMAL') {
+                return { action:actions.changeCursorRow , params:[-1] }
+            }
             break
         default:
             break
