@@ -12,8 +12,8 @@ export class Lesson extends Component {
       console.log(e.key, 'pressed')
       const keys = store.getState().currentLesson.keys
       const mode = store.getState().vim.mode
-      const action = grandMasterWizardKeyHandler(e.key, keys, mode)
-      if (action) store.dispatch(action)
+      const actions = grandMasterWizardKeyHandler(e.key, keys, mode)
+      if (actions) store.dispatch(actions.action(...actions.params))
     })
   }
   render() {
