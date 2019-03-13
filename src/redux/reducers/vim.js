@@ -14,17 +14,8 @@ export default (state = initialState, action = {}) => {
         case types.CHANGE_CURSOR_POS:
             return {
                 ...state,
-                cursorPos: {...state.cursorPos, ...action.position}
-            }
-        case types.CHANGE_CURSOR_COL:
-            return {
-                ...state,
-                cursorPos: { ...state.cursorPos, col: action.position.col }
-            }
-        case types.CHANGE_CURSOR_ROW:
-            return {
-                ...state,
-                cursorPos: { ...state.cursorPos, row: action.position.row }
+                cursorPos: {...state.cursorPos, ...action.position},
+                furthestCol: action.furthestCol ? action.furthestCol : state.furthestCol
             }
         default:
             return state

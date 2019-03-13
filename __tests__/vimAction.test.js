@@ -26,7 +26,7 @@ describe('vim actions', () => {
             const store = mockStore(initialState)
             const row = 3
             const expectedAction = {
-                type: types.CHANGE_CURSOR_ROW,
+                type: types.CHANGE_CURSOR_POS,
                 row
             }
             store.dispatch(actions.changeCursorRow(row, unit1.lessons[0]))
@@ -43,8 +43,8 @@ describe('vim actions', () => {
             store.dispatch(actions.changeCursorRow(-1, unit1.lessons[0]))
             const storeActions = store.getActions()
             expect(storeActions).toContainEqual(expectedAction)
-            expect(storeActions).not.toContainEqual({type: types.CHANGE_CURSOR_ROW, row})
-            expect(storeActions).not.toContainEqual({type: types.CHANGE_CURSOR_ROW, row:-1})
+            expect(storeActions).not.toContainEqual({ type: types.CHANGE_CURSOR_POS, row })
+            expect(storeActions).not.toContainEqual({ type: types.CHANGE_CURSOR_POS, row: -1 })
 
         })
     })
@@ -53,8 +53,9 @@ describe('vim actions', () => {
             const store = mockStore(initialState)
             const col = 5
             const expectedAction = {
-                type: types.CHANGE_CURSOR_COL,
-                col
+                type: types.CHANGE_CURSOR_POS,
+                col,
+                furthestCol: col
             }
             store.dispatch(actions.changeCursorCol(col, unit1.lessons[0]))
             const storeActions = store.getActions()
@@ -70,14 +71,25 @@ describe('vim actions', () => {
             store.dispatch(actions.changeCursorCol(-1, unit1.lessons[0]))
             const storeActions = store.getActions()
             expect(storeActions).toContainEqual(expectedAction)
-            expect(storeActions).not.toContainEqual({type: types.CHANGE_CURSOR_COL, col})
-            expect(storeActions).not.toContainEqual({type: types.CHANGE_CURSOR_COL, col:-1})
+            expect(storeActions).not.toContainEqual({ type: types.CHANGE_CURSOR_POS, col })
+            expect(storeActions).not.toContainEqual({ type: types.CHANGE_CURSOR_POS, col: -1 })
         })
     })
 
     describe('furthestCol', () => {
         it('should change with cursor movement', () => {
+            const store = mockStore(initialState)
+            const lesson = unit1.lessons[0]
+            const expectedAction =
+                {
+                    type: types.CHANGE_CURSOR_POS,
+                    col: 21,
+                    furthestCol: 21
+                }
 
+            store.dispatch(actions.changeCursorCol(21, lesson))
+            const storeActions = store.getActions()
+            expect(storeActions).toContainEqual(expectedAction)
         })
     })
 })
