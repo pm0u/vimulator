@@ -8,6 +8,7 @@ export class Lesson extends Component {
   startLesson = () => {
     this.props.changeCurrentLesson(this.props.lesson.id)
     document.addEventListener('keydown', (e) => {
+      console.log(e.key, 'pressed')
       grandMasterWizardKeyHandler(e.key)
     })
   }
