@@ -16,7 +16,7 @@
     "build": "react-scripts build",
     "test": "jest --coverage",
     "deploy": "npm run build && mv build/index.html build/200.html && surge build",
-    "travis-deploy": "npm run build && mv build/index.html build/200.html && surge build",
+    //"travis-deploy": "npm run build && mv build/index.html build/200.html",
     "eject": "react-scripts eject"
   },
   "jest": {
