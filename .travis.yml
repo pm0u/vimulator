@@ -12,4 +12,3 @@ deploy:
   skip_cleanup: true
   domain: vimulator2.surge.sh
   project: ./build/
-on: master
