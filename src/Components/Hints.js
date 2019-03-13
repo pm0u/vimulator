@@ -27,9 +27,9 @@ export class Hints extends Component {
             <div id='hints'>
             {this.renderHints()}
                 <div id='save-reset'>
-                    <a href='#' id='save' target="_self">save</a>
-                    <a href='#' id='load' target="_self">load</a>
-                    <a href='#' id='reset' target="_self">reset lesson</a>
+                    <button id='save' className='link-button'>save</button>
+                    <button id='load' className='link-button'>load</button>
+                    <button id='reset' className='link-button'>reset</button>
                 </div>
             </div>
         )

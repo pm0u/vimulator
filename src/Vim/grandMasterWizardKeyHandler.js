@@ -1,7 +1,7 @@
-import store from '../redux/store'
+import reduxStore from '../redux/store'
 import * as actions from '../redux/actions/vim'
 
-export const grandMasterWizardKeyHandler = (key, store = store) => {
+export const grandMasterWizardKeyHandler = (key, store = reduxStore) => {
     // the grandMasterWizardKeyHandler decreeth:
     // let the keyboard do things!
     // huzzah!
