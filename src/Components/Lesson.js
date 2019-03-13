@@ -14,7 +14,7 @@ export class Lesson extends Component {
   }
   render() {
     return (
-        <li><button onClick={() => this.props.changeCurrentLesson(this.props.lesson.id)}className='link-button'>{this.props.lesson.name}</button></li>
+        <li><button onClick={() => this.startLesson()}className='link-button'>{this.props.lesson.name}</button></li>
     )
   }
 }
