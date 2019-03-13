@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import VimText from './VimText'
 
 export class VimArea extends Component {
     render() {
@@ -8,6 +9,7 @@ export class VimArea extends Component {
                     <div id='line-nos'>&nbsp;
                     </div>
                     <div id='vim-text'>
+                    <VimText />
                     </div>
                     <div id='command-bar'>
                         <p id='mode'>--NORMAL--</p>

@@ -304,6 +304,10 @@ a#home:hover {
   margin: .2em;
 }
 
+.code-line {
+  white-space: pre-wrap;
+}
+
 .subtle-drop {
   font-family: 'Fira Mono';
   background-color: var(--bg);
