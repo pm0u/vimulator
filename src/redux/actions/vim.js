@@ -35,22 +35,14 @@ export const changeCursorRow = (rowMove) => {
 
 export const changeCursorCol = colMove => {
     return (dispatch, getState) => {
-        const { vim: { cursorPos, furthestCol }, currentLesson: { lesson } } = getState()
+        const { vim: { cursorPos }, currentLesson: { lesson } } = getState()
         let col = cursorPos.col + colMove
         if (lesson.lessonText[cursorPos.row].length > col && col >= 0) {
-            if (col > furthestCol || col < cursorPos.col) {
-                dispatch({
-                    type: types.CHANGE_CURSOR_POS,
-                    position: { col },
-                    furthestCol: col
-                })
-            } else {
-                dispatch({
-                    type: types.CHANGE_CURSOR_POS,
-                    position: { col },
-                    furthestCol
-                })
-            }
+            dispatch({
+                type: types.CHANGE_CURSOR_POS,
+                position: { col },
+                furthestCol: col
+            })
         } else {
             dispatch(
                 {
