@@ -6,8 +6,6 @@ export class VimArea extends Component {
         return (
             <div id='vim-box'>
                 <div id='vim-content'>
-                    <div id='line-nos'>&nbsp;
-                    </div>
                     <div id='vim-text'>
                     <VimText />
                     </div>

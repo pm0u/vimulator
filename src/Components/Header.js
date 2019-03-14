@@ -8,7 +8,7 @@ export class Header extends Component {
                     <nav>
                         <ul>
                             <li>
-                                <h3 id='main-heading'><a href='index.html' id='home' target="_self">:VIM<span id='ulator'>ulator</span></a></h3>
+                                <h3 id='main-heading'>:Vim<span id='ulator'>ulator</span></h3>
                             </li>
                             <li><a href='resources.html' target="_self">resources</a></li>
                         </ul>

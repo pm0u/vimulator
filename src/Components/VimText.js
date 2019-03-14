@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import CodeLine from './CodeLine';
 
 export class VimText extends Component {
 
     renderText = () => {
-        return <pre className='code-line'>    I am a line of code or something</pre>
-
+        const cursorPos = this.props.vim.cursorPos
+        if (this.props.currentLesson.lesson) {
+            return (
+                <>
+                    {this.props.currentLesson.lesson.lessonText.map((line, lineNo) => {
+                        return <CodeLine cursorPos={lineNo === cursorPos.row ? cursorPos.col : null} line={line} lineNo={lineNo + 1} />
+                    })}
+                </>
+            )
+        }
     }
 
     render() {

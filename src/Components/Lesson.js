@@ -7,14 +7,16 @@ import store from '../redux/store'
 
 export class Lesson extends Component {
   startLesson = () => {
-    this.props.changeCurrentLesson(this.props.lesson.id)
-    document.addEventListener('keydown', (e) => {
+    document.removeEventListener('keydown', store.getState().currentLesson.keyHandler)
+    this.props.changeCurrentLesson(this.props.lesson.id, this.keyHandler)
+    document.addEventListener('keydown', this.keyHandler)
+  }
+  keyHandler = (e) => {
       console.log(e.key, 'pressed')
-      const keys = store.getState().currentLesson.keys
+      const keys = store.getState().currentLesson.lesson.keys
       const mode = store.getState().vim.mode
       const actions = grandMasterWizardKeyHandler(e.key, keys, mode)
       if (actions) store.dispatch(actions.action(...actions.params))
-    })
   }
   render() {
     return (

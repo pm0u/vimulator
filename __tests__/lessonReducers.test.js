@@ -4,19 +4,26 @@ import { unit1 } from '../src/Vim/units'
 
 describe('lessons reducer', () => {
     it('should return initial state', () => {
-        expect(reducer()).toEqual(null)
+        const initialState = {
+            lesson: null,
+            keyHandler: null
+        }
+        expect(reducer()).toEqual(initialState)
     })
     it('should change lesson based on id', () => {
-        const lessonId = unit1.lessons[0].id
-        const lessonId2 = unit1.lessons[1].id
+        const fakeKeyHandler = () => {}
+        const lesson = unit1.lessons[0]
+        const lesson2 = unit1.lessons[1]
         expect(reducer(null, {
             type: types.CHANGE_CURRENT_LESSON,
-            lessonId
-        })).toEqual(unit1.lessons[0])
+            newLesson: lesson,
+            keyHandler: fakeKeyHandler
+        })).toEqual({ lesson: unit1.lessons[0], keyHandler: fakeKeyHandler })
         expect(reducer(null, {
             type: types.CHANGE_CURRENT_LESSON,
-            lessonId: lessonId2
-        })).toEqual(unit1.lessons[1])
+            newLesson: lesson2,
+            keyHandler: fakeKeyHandler
+        })).toEqual({ lesson: unit1.lessons[1], keyHandler: fakeKeyHandler })
 
     })
 })

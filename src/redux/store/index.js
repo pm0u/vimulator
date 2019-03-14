@@ -15,10 +15,12 @@ if (process.env.NODE_ENV === `development`) {
   middleware.push(logger);
 }
 
+const composeEnhancers = composeWithDevTools({trace: true})
+
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware))
+  composeEnhancers(applyMiddleware(...middleware))
 )
 
 export default store
