@@ -149,6 +149,10 @@ header {
   margin: auto;
 }
 
+#cursor-position {
+  margin: 0;
+}
+
 #mode {
   grid-area: mode;
   margin: 0;
