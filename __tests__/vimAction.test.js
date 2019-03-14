@@ -4,7 +4,6 @@ import * as actions from '../src/redux/actions/vim'
 import { unit1 } from '../src/Vim/units'
 import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
-import currentLesson from '../src/redux/reducers/currentLesson';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -12,9 +11,12 @@ const initialState = {
     vim: {
         cursorPos: unit1.lessons[0].cursorPos,
         mode: 'NORMAL',
-        furthestCol: 0
+        furthestCol: unit1.lessons[0].cursorPos.col
     },
-    currentLesson: unit1.lessons[0]
+    currentLesson: {
+        lesson: unit1.lessons[0],
+        keyHandler: null
+    }
 }
 
 describe('vim actions', () => {
@@ -33,9 +35,10 @@ describe('vim actions', () => {
             const store = mockStore(initialState)
             const rowMove = 2
             const row = rowMove + store.getState().vim.cursorPos.row
+            const col = store.getState().vim.cursorPos.col
             const expectedAction = {
                 type: types.CHANGE_CURSOR_POS,
-                position: { row }
+                position: { row, col }
             }
             store.dispatch(actions.changeCursorRow(rowMove))
             const storeActions = store.getActions()
@@ -65,7 +68,7 @@ describe('vim actions', () => {
                 }
             }
             const store = mockStore(testState)
-            const col = store.getState().currentLesson.lessonText[2].length - 1
+            const col = store.getState().currentLesson.lesson.lessonText[2].length - 1
             const expectedActions = {
                 type: types.CHANGE_CURSOR_POS,
                 position: { row: 2, col },
@@ -73,6 +76,26 @@ describe('vim actions', () => {
             store.dispatch(actions.changeCursorRow(1))
             const storeActions = store.getActions()
             expect(storeActions).toContainEqual(expectedActions)
+        })
+        it('should restore col to furthestCol when going to new row if longer', () => {
+            const testState = {
+                ...initialState,
+                vim: {
+                    ...initialState.vim,
+                    cursorPos: { col: 23, row: 2 },
+                    furthestCol: 29
+                }
+            }
+            const store = mockStore(testState)
+            const col = store.getState().vim.furthestCol
+            const expectedActions = {
+                type: types.CHANGE_CURSOR_POS,
+                position: { row: 1, col },
+            }
+            store.dispatch(actions.changeCursorRow(-1))
+            const storeActions = store.getActions()
+            expect(storeActions).toContainEqual(expectedActions)
+
         })
     })
     describe('changeCursorCol', () => {

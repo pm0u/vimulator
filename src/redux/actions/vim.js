@@ -9,18 +9,18 @@ export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
 
 export const changeCursorRow = (rowMove) => {
     return (dispatch, getState) => {
-        const { vim: { cursorPos }, currentLesson: lesson } = getState()
+        const { vim: { cursorPos, furthestCol }, currentLesson: { lesson } } = getState()
         let row = cursorPos.row + rowMove
         if (lesson.lessonText.length > row && row >= 0) {
-            if (lesson.lessonText[row].length - 1 < cursorPos.col) {
+            if (furthestCol <= lesson.lessonText[row].length - 1) {
                 dispatch({
                     type: types.CHANGE_CURSOR_POS,
-                    position: { row, col: lesson.lessonText[row].length - 1 }
+                    position: { row, col: furthestCol }
                 })
             } else {
                 dispatch({
                     type: types.CHANGE_CURSOR_POS,
-                    position: { row }
+                    position: { row, col: lesson.lessonText[row].length - 1 }
                 })
             }
         } else {
@@ -35,7 +35,7 @@ export const changeCursorRow = (rowMove) => {
 
 export const changeCursorCol = colMove => {
     return (dispatch, getState) => {
-        const { vim: { cursorPos, furthestCol }, currentLesson: lesson } = getState()
+        const { vim: { cursorPos, furthestCol }, currentLesson: { lesson } } = getState()
         let col = cursorPos.col + colMove
         if (lesson.lessonText[cursorPos.row].length > col && col >= 0) {
             if (col > furthestCol || col < cursorPos.col) {
