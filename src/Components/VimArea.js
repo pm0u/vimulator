@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import VimText from './VimText'
+import CursorPos from './CursorPos'
 
 export class VimArea extends Component {
     render() {
@@ -11,8 +12,7 @@ export class VimArea extends Component {
                     </div>
                     <div id='command-bar'>
                         <p id='mode'>--NORMAL--</p>
-                        <div id='pos-div'>
-                        </div>
+                        <CursorPos />
                     </div>
                 </div>
             </div>
