@@ -2,23 +2,28 @@ import * as types from '../constants/vimActions'
 import store from '../store'
 import { bindActionCreators } from 'redux';
 
-export const changeCursorPos = (position = [0, 0]) => ({
+export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     type: types.CHANGE_CURSOR_POS,
     position
 })
 
-export const changeCursorRow = (rowMove, lesson = store.getState().currentLesson.lesson) => {
-    const { cursorPos, furthestCol } = store.getState().vim
-    const row = cursorPos.row + rowMove
-    if (lesson.lessonText.length > row && row >= 0) {
-        return dispatch => {
-            dispatch({
-                type: types.CHANGE_CURSOR_POS,
-                position: { row }
-            })
-        }
-    } else {
-        return dispatch => {
+export const changeCursorRow = (rowMove) => {
+    return (dispatch, getState) => {
+        const { vim: { cursorPos, furthestCol }, currentLesson: { lesson } } = getState()
+        let row = cursorPos.row + rowMove
+        if (lesson.lessonText.length > row && row >= 0) {
+            if (furthestCol <= lesson.lessonText[row].length - 1) {
+                dispatch({
+                    type: types.CHANGE_CURSOR_POS,
+                    position: { row, col: furthestCol }
+                })
+            } else {
+                dispatch({
+                    type: types.CHANGE_CURSOR_POS,
+                    position: { row, col: lesson.lessonText[row].length - 1 }
+                })
+            }
+        } else {
             dispatch(
                 {
                     type: types.CHANGE_CURSOR_FAIL
@@ -28,22 +33,17 @@ export const changeCursorRow = (rowMove, lesson = store.getState().currentLesson
     }
 }
 
-export const changeCursorCol = (colMove, lesson = store.getState().currentLesson.lesson) => {
-    let { cursorPos, furthestCol } = store.getState().vim
-    let col = cursorPos.col + colMove
-    if (lesson.lessonText[cursorPos.row].length > col && col >= 0) {
-        return dispatch => {
-            if (col > furthestCol || col < cursorPos.col) {
-                furthestCol = col
-            }
+export const changeCursorCol = colMove => {
+    return (dispatch, getState) => {
+        const { vim: { cursorPos }, currentLesson: { lesson } } = getState()
+        let col = cursorPos.col + colMove
+        if (lesson.lessonText[cursorPos.row].length > col && col >= 0) {
             dispatch({
                 type: types.CHANGE_CURSOR_POS,
                 position: { col },
-                furthestCol
+                furthestCol: col
             })
-        }
-    } else {
-        return dispatch => {
+        } else {
             dispatch(
                 {
                     type: types.CHANGE_CURSOR_FAIL
