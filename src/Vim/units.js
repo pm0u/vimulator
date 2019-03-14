@@ -3,15 +3,15 @@ const unit1 = {
   lessons: [{
     id: '1.1',
     name: 'Basic Movement',
-    cursorPos: {col:10,row:1},
+    cursorPos: { col: 10, row: 1 },
     finishCond: {
-      cursorPos: {col:0, row:[0,3]}
+      cursorPos: { col: 0, row: [0, 3] }
     },
     keys: {
-      h:true,
-      j:true,
-      k:true,
-      l:true
+      h: true,
+      j: true,
+      k: true,
+      l: true
     },
     lessonText: [
       `This is a line of text`,
@@ -29,16 +29,16 @@ const unit1 = {
   {
     id: `1.2`,
     name: `Start/end of line`,
-    cursorPos: {col:20,row:1},
+    cursorPos: { col: 20, row: 1 },
     finishCond: {
-      cursorPos: {col:42,row:0}
+      cursorPos: { col: 42, row: 0 }
     },
     keys: {
-      '^':true,
-      '$':true,
-      '0':true,
-      j:true,
-      k:true
+      '^': true,
+      '$': true,
+      '0': true,
+      j: true,
+      k: true
     },
     lessonText: [
       `Move to end of this line to end the lesson.`,
