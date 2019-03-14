@@ -1,4 +1,3 @@
-
 html {
   height: 100%;
   width: 100%;
@@ -17,8 +16,8 @@ body {
 }
 
 #root {
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-areas: 'header header header'
     'lessons vim hints'
@@ -58,7 +57,7 @@ div#vim-box {
 div#vim-content {
   height: 100%;
   display: grid;
-  grid-template-areas: 'line-nos vim'
+  grid-template-areas: 'vim vim'
     'command-bar command-bar';
   grid-template-rows: 9fr min-content;
   grid-template-columns: min-content 1fr;
@@ -108,7 +107,7 @@ header {
 #save-reset {
   background-color: var(--bg-highlights);
   padding: .1em .5em 0 .5em;
-  bottom:0;
+  bottom: 0;
   left: 0;
   width: 100%;
   display: flex;
@@ -116,25 +115,24 @@ header {
   align-items: center;
 }
 
-#vim-text, #line-nos {
+/*#vim-text,
+#line-nos {
   padding: .2em 0 .2em 0;
-}
+}*/
 
 #vim-text {
   grid-area: vim;
-  height:100%;
-  word-break: break-all;
-  overflow-wrap: break-word;
-  line-break: loose;
-  display: block;
-  white-space: pre-wrap;
+  height: 100%;
 }
 
-#line-nos {
-  grid-area: line-nos;
+.line-nos {
+  color: var(--base1);
+  display: inline-block;
+  text-align: right;
+  width: 3ch;
   padding-right: .2em;
   padding-left: .5em;
-  background-color: var(--bg-highlights);
+  /*background-color: var(--bg-highlights);*/
 }
 
 #command-bar {
@@ -161,6 +159,7 @@ span.mode {
   color: var(--modes);
   font-weight: bold;
 }
+
 span.key {
   color: var(--keys);
   font-weight: bold;
@@ -179,7 +178,8 @@ nav ul {
   padding: 0;
 }
 
-nav ul, nav li {
+nav ul,
+nav li {
   display: inline;
   list-style: none;
   padding: 0 .4em 0 .4em;
@@ -247,11 +247,11 @@ ul#footer-content {
 }
 
 ul#footer-content li {
-    flex-grow: 0;
-    margin: .25em 0;
-    padding: 0 1em;
-    text-align: center;
-    border-left: 1px solid #ccc;
+  flex-grow: 0;
+  margin: .25em 0;
+  padding: 0 1em;
+  text-align: center;
+  border-left: 1px solid #ccc;
 }
 
 span.emph {
@@ -265,7 +265,7 @@ span.emph {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   padding: 1em;
   border-radius: 5px;
 }
@@ -302,6 +302,14 @@ a#home:hover {
   background-color: var(--bg);
   border: 1px solid var(--base1);
   margin: .2em;
+}
+
+.code-line {
+  white-space: pre-wrap;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  display: inline;
+  padding-left: 1%;
 }
 
 .subtle-drop {

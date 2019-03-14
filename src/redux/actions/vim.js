@@ -7,10 +7,10 @@ export const changeCursorPos = (position = [0, 0]) => ({
     position
 })
 
-export const changeCursorRow = (rowMove, lesson = store.getState().currentLesson) => {
+export const changeCursorRow = (rowMove, lesson = store.getState().currentLesson.lesson) => {
     const { cursorPos, furthestCol } = store.getState().vim
     const row = cursorPos.row + rowMove
-    if (lesson.lessonText.length >= row && row >= 0) {
+    if (lesson.lessonText.length > row && row >= 0) {
         return dispatch => {
             dispatch({
                 type: types.CHANGE_CURSOR_POS,
@@ -28,10 +28,10 @@ export const changeCursorRow = (rowMove, lesson = store.getState().currentLesson
     }
 }
 
-export const changeCursorCol = (colMove, lesson = store.getState().currentLesson) => {
+export const changeCursorCol = (colMove, lesson = store.getState().currentLesson.lesson) => {
     let { cursorPos, furthestCol } = store.getState().vim
     let col = cursorPos.col + colMove
-    if (lesson.lessonText[cursorPos.row].length >= col && col >= 0) {
+    if (lesson.lessonText[cursorPos.row].length > col && col >= 0) {
         return dispatch => {
             if (col > furthestCol || col < cursorPos.col) {
                 furthestCol = col

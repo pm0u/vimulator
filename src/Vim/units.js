@@ -3,9 +3,9 @@ const unit1 = {
   lessons: [{
     id: '1.1',
     name: 'Basic Movement',
-    cursorPos: [10, 1],
+    cursorPos: {col:10,row:1},
     finishCond: {
-      cursorPos: [0, [0, 3]]
+      cursorPos: {col:0, row:[0,3]}
     },
     keys: {
       h:true,
@@ -29,9 +29,9 @@ const unit1 = {
   {
     id: `1.2`,
     name: `Start/end of line`,
-    cursorPos: [20, 1],
+    cursorPos: {col:20,row:1},
     finishCond: {
-      cursorPos: [0, 42]
+      cursorPos: {col:42,row:0}
     },
     keys: {
       '^':true,

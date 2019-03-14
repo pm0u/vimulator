@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 
 export class Hints extends Component {
     renderHints = () => {
-        if (this.props.currentLesson) {
-            const hints = this.props.currentLesson.hints
+        if (this.props.currentLesson.lesson) {
+            const hints = this.props.currentLesson.lesson.hints
             return (
                 <div id='hints-content'>
                 <h4>{hints.title}</h4>
