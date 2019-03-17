@@ -13,6 +13,8 @@ const verify = function (req, res, next) {
     jwt.verify(req.cookies.token, privateKey,
         (err, decoded) => {
             if (err) {
+                console.log('user not authorized')
+                console.log(req.cookies.token)
                 next({
                     status: 401,
                     error: err,
