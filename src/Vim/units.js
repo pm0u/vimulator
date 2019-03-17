@@ -35,7 +35,7 @@ const unit1 = {
     },
     keys: {
       '^': true,
-      '$': true,
+      '_$': true,
       '0': true,
       j: true,
       k: true
