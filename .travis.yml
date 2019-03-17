@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- 11.10.1
+cache:
+  directories:
+  - node_modules
+script:
+- npm test
+deploy:
+  matrix:
+  - provider: heroku
+    app: vimulator
+  api_key:
+    secure: P793xj7fAsQUw3n/OkRNw6O222s0sKWx5NuLlio2YcurTIpKWTlCtlLyPEkbMuk34S72WJbFsAIw4y0ckE0u3xfvBf5+VzdWdHWPKIWz0YHf7uIZJ9qaRe1FZ3QNKdg9zpzFqLafNJbLdFjJZF145QT8MrxUxay51b/A5PeUJyR3PGX4z3yys1ABPsXYZ8euVesaPiFO0Du+w6Sy2KiBboyTdCWc2jk2IM3Q167eDpIZZarPOGnABkW9XQVnBw87zCCPrmTH/foRp3VDZvUvawUmMys5oUL8rNBUIzOeqkcIcFvgO0jdft5fmfVDIIe9vu6pABRotYuswSP0BXkfwvB9zIKwMV54ZCVJWHPS4wDQ/Cc/ygi5z2rV8KllzWnJrWKQbA4KeQNYZ+GY/RivVJ7pxcDB/zFFyE7ozHs9XHjnTclV+LtCb1gslPTfbfdbXLPf7/BFDOMzqu+A9jJ8OEvGq4CHOhycSkXU0jg7VzRSNPZ7pZoZNu2/hALNyXaAH5iEoVlIMD/kimhgZKJ/NSu/wK32UnsPDq913wR90GRTO+RWvcwZxfGx8zh+K5ja9hPYMjRqw/eGln4DgVLDmpzyIv6GPCI5foDetm1PD53qyGDGFoej9YfgZpqcadux2jAhgznjIgSQBaRtO7xUIvZDin6HFAITj0ndrfXPSW8=
