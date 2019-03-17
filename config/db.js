@@ -14,6 +14,3 @@ mongoose.connect(dbURI, options).then(
         console.log("Error connecting Database instance due to: ", err);
     }
 )
-
-
-require('../models/test')

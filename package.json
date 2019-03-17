@@ -10,6 +10,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "redux-devtools-extension": "^2.13.8",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
@@ -44,7 +45,6 @@
   "devDependencies": {
     "babel-plugin-wildcard": "^5.0.0",
     "enzyme": "^3.9.0",
-    "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "surge": "^0.20.1"
   },
