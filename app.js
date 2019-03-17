@@ -6,7 +6,6 @@ const passport = require('passport')
 
 const loginRouter = require('./routes/login')
 const apiRouter = require('./routes/api')
-//const reactRouter = require('./routes/react')
 
 require('dotenv').config()
 
@@ -27,7 +26,6 @@ app.use(passport.initialize())
 require('./config/passport-github')
 require('./config/db')
 
-//app.use('/', reactRouter)
 
 app.use('/login', loginRouter)
 app.use('/api', apiRouter)
