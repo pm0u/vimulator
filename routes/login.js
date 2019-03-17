@@ -28,7 +28,7 @@ router
             user = await usersController.newUserAtLogin({ displayName, ghID })
         }
         const token = jwt.sign(JSON.stringify(user[0]), privateKey)
-        res.cookie('token', token, { domain: 'vimulator2.surge.sh', path:'/', httpOnly:true })
+        res.cookie('token', token, { httpOnly:true })
         res.redirect(appUrl)
     })
 
