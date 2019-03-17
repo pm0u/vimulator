@@ -12,7 +12,7 @@ const publicKey = process.env.JWT_PUBLIC_KEY
 
 const usersController = require('../controllers/usersController')
 
-const appUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'http://localhost:3000'
+const appUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'http://localhost:8000'
 
 const domain = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'localhost'
 
@@ -29,7 +29,7 @@ router
         }
         const token = jwt.sign(JSON.stringify(user[0]), privateKey)
         res.cookie('token', token, { domain: 'vimulator2.surge.sh', path:'/', httpOnly:true })
-        res.redirect(`https://vimulator2.surge.sh`)
+        res.redirect(appUrl)
     })
 
 

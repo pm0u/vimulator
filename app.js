@@ -17,11 +17,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
-//if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'build')))
-//} else {
-//  app.use(express.static(path.join(__dirname, 'public')))
-//}
+} else {
+  app.use(express.static(path.join(__dirname, 'public')))
+}
 
 app.use(passport.initialize())
 require('./config/passport-github')
