@@ -9,13 +9,22 @@
     "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^7.0.0",
+    "express": "~4.16.0",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.19",
+    "morgan": "~1.9.0",
+    "passport": "^0.4.0",
+    "passport-github": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node ./bin/www & react-scripts start",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "deploy": "npm run build && mv build/index.html build/200.html && surge build",
     "eject": "react-scripts eject"
   },
   "jest": {
@@ -38,5 +47,6 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-mock-store": "^1.5.3",
     "surge": "^0.20.1"
-  }
+  },
+  "proxy": "http://localhost:8000"
 }
