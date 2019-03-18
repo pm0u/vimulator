@@ -7,10 +7,12 @@ import Footer from './Components/Footer'
 import { connect } from 'react-redux'
 import { fetchUnits } from './redux/actions/units'
 import { bindActionCreators } from 'redux'
+import Cookies from 'universal-cookie'
 
 export class App extends Component {
     componentDidMount = () => {
-        console.log(this.props.dispatch)
+        const cookies = new Cookies()
+        console.log(cookies.get('token'))
         this.props.fetchUnits()
     }
     render() {
