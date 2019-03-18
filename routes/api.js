@@ -31,7 +31,7 @@ const verify = function (req, res, next) {
 router
     .get('/user', verify, (req, res) => {
         usersController.getUserById(req.userCredentials.ghID).then((user, err) => {
-            res.status(200).send(`${user}`)
+            res.status(200).send(user[0])
         })
     })
     .get('/users', verify, async (req, res) => {

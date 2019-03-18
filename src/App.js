@@ -15,6 +15,7 @@ export class App extends Component {
         const cookies = new Cookies()
         console.log(cookies.get('token'))
         this.props.fetchUnits()
+        this.props.fetchUserData()
     }
     render() {
         return (
