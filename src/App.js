@@ -4,6 +4,7 @@ import LessonList from './Components/LessonList'
 import VimArea from './Components/VimArea'
 import Hints from './Components/Hints'
 import Footer from './Components/Footer'
+import LoginModal from './Components/LoginModal'
 import { connect } from 'react-redux'
 import { fetchUnits } from './redux/actions/units'
 import { fetchUserData } from './redux/actions/user'
@@ -11,6 +12,7 @@ import { bindActionCreators } from 'redux'
 import Cookies from 'universal-cookie'
 
 export class App extends Component {
+
     componentDidMount = () => {
         const cookies = new Cookies()
         this.props.fetchUnits()
@@ -18,6 +20,7 @@ export class App extends Component {
             this.props.fetchUserData()
         }
     }
+
     render() {
         return (
             <>
@@ -26,6 +29,7 @@ export class App extends Component {
                 <VimArea />
                 <Hints />
                 <Footer />
+                <LoginModal />
             </>
         )
     }

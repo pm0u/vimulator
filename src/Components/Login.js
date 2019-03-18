@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { toggleLoginWindow } from '../redux/actions/loginWindow'
 
 export class Login extends Component {
     renderLogin = () => {
@@ -10,7 +12,7 @@ export class Login extends Component {
                 </>
             )
         } else {
-            return <button className='link-button'>log in to save progress</button>
+            return <button className='link-button' onClick={this.props.toggleLoginWindow}>log in to save progress</button>
         }
     }
     render() {
@@ -26,7 +28,10 @@ const mapStateToProps = state => ({
     user: state.user,
 })
 
+const mapDispatchToProps = dispatch => bindActionCreators({ toggleLoginWindow }, dispatch)
+
+
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Login)

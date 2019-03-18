@@ -263,17 +263,24 @@ span.emph {
 
 .pop-up-div {
   background-color: var(--bg-highlights);
-  filter: opacity(90%);
+  filter: opacity(80%);
   position: absolute;
+  width:60%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 1em;
   border-radius: 5px;
+  text-align: center;
 }
 
-.pop-up-contents {
-  text-align: center;
+.login-window {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  height:100%;
 }
 
 
