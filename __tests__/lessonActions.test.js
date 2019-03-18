@@ -11,14 +11,14 @@ const mockStore = configureStore(middlewares);
 describe('Current lesson actions', () => {
     it('should change current lesson', () => {
         const store = mockStore(initialState)
-        const lessonId = unit1.lessons[1].id
+        const lesson = unit1.lessons[1]
         const fakeKeyHandler = () => {}
         const expectedAction = {
             type: types.CHANGE_CURRENT_LESSON,
             newLesson: unit1.lessons[1],
             keyHandler: fakeKeyHandler
         }
-        store.dispatch(actions.changeCurrentLesson(lessonId, fakeKeyHandler))
+        store.dispatch(actions.changeCurrentLesson(lesson, fakeKeyHandler))
         expect(store.getActions()).toContainEqual(expectedAction)
     })
 })

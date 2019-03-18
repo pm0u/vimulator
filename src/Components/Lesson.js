@@ -8,7 +8,7 @@ import store from '../redux/store'
 export class Lesson extends Component {
   startLesson = () => {
     document.removeEventListener('keydown', store.getState().currentLesson.keyHandler)
-    this.props.changeCurrentLesson(this.props.lesson.id, this.keyHandler)
+    this.props.changeCurrentLesson(this.props.lesson, this.keyHandler)
     document.addEventListener('keydown', this.keyHandler)
   }
   keyHandler = (e) => {

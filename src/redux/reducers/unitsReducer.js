@@ -1,9 +1,11 @@
-import { unit1 } from '../../Vim/units'
+import * as types from '../constants/unitActions'
 
-const initialState = [unit1]
+const initialState = []
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case types.FETCH_UNITS_SUCCESS:
+            return [...state, ...action.units]
         default:
             return state
     }

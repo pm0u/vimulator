@@ -1,7 +1,6 @@
 const unit1 = {
   name: 'Movement',
   lessons: [{
-    id: '1.1',
     name: 'Basic Movement',
     cursorPos: { col: 10, row: 1 },
     finishCond: {
@@ -27,7 +26,6 @@ const unit1 = {
     },
   },
   {
-    id: `1.2`,
     name: `Start/end of line`,
     cursorPos: { col: 20, row: 1 },
     finishCond: {

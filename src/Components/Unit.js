@@ -5,7 +5,7 @@ export class Unit extends Component {
     renderLessons = () => {
         if (this.props.unit.lessons) {
             return this.props.unit.lessons.map(lesson => {
-                return <Lesson key={lesson.id} lesson={lesson} />
+                return <Lesson key={lesson['_id']} lesson={lesson} />
             })
         }
     }

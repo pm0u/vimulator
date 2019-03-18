@@ -26,7 +26,8 @@
     "start": "node ./bin/www",
     "build": "react-scripts build",
     "test": "jest --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "dev":"react-scripts start & nodemon ./bin/www"
   },
   "jest": {
     "transform": {
