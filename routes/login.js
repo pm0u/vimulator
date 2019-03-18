@@ -16,15 +16,14 @@ const appUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL
 router
     .get('/github', passport.authenticate('github'))
     .get('/github/callback', passport.authenticate('github'), async (req, res) => {
-        console.log(req.user.profile)
-        const { id: ghID, displayName, login } = req.user.profile
+        const { id: ghID, displayName, username } = req.user.profile
 
-        let user = await usersController.getUserById(ghID)
+        let user = await usersController.getUserById(ghID)[0]
 
-        if (user.length === 0) {
-            user = await usersController.newUserAtLogin({ displayName, ghID, login })
+        if (!user) {
+            user = await usersController.newUserAtLogin({ displayName, ghID, username })
         }
-        const token = jwt.sign(JSON.stringify(user[0]), privateKey)
+        const token = jwt.sign(JSON.stringify(user), privateKey)
         res.cookie('token', token, { httpOnly: true })
         res.redirect(appUrl)
     })

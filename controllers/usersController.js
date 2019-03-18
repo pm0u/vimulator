@@ -11,8 +11,8 @@ exports.createNewUser = (req, res) => {
     })
 }
 
-exports.newUserAtLogin = ({ displayName, ghID }) => {
-    let newUser = new User({ displayName, ghID })
+exports.newUserAtLogin = ({ displayName, ghID, username }) => {
+    let newUser = new User({ displayName, ghID, username })
     return newUser.save()
 }
 

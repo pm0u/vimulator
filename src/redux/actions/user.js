@@ -6,13 +6,27 @@ const fetchUserDataSuccess = user => ({
     user
 })
 
+const postUserDataSuccess = user => ({
+    type: types.POST_USERDATA_SUCCESS,
+    user
+})
+
 const fetchUserDataFail = error => ({
     type: types.FETCH_USERDATA_FAIL,
     error
 })
 
+const postUserDataFail = error => ({
+    type: types.POST_USERDATA_FAIL,
+    error
+})
+
 const fetchUserDataStart = () => ({
     type: types.FETCH_USERDATA_START
+})
+
+const postUserDataStart = () => ({
+    type: types.POST_USERDATA_START
 })
 
 export const fetchUserData = () => {
@@ -40,5 +54,26 @@ export const updateLesson = (lessonId, completed = false) => {
                 }
             }
         })
+    }
+}
+
+export const postUserData = () => {
+    return async (dispatch, getState) => {
+        const user = getState().user
+        dispatch(postUserDataStart())
+        const userResponse = await fetch('/api/user', {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        if (userResponse.ok) {
+            const user = await userResponse.json()
+            dispatch(postUserDataSuccess(user))
+        } else {
+            dispatch(postUserDataFail(userResponse.statusText))
+        }
     }
 }

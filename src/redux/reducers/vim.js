@@ -22,7 +22,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 cursorPos: action.newLesson.cursorPos,
-                furthestCol: action.newLesson.cursorPos.col
+                furthestCol: action.newLesson.cursorPos.col,
+                mode: 'NORMAL'
+            }
+        case types.SET_VIM_STATE:
+            return {
+                ...action.vimState
             }
         default:
             return state

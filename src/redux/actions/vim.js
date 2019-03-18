@@ -5,6 +5,11 @@ export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     position
 })
 
+export const setVimState = vimState => ({
+    type: types.SET_VIM_STATE,
+    vimState
+})
+
 export const changeCursorRow = (rowMove) => {
     return (dispatch, getState) => {
         const { vim: { cursorPos, furthestCol }, currentLesson: { lesson } } = getState()

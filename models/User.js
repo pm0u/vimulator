@@ -12,13 +12,13 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    login: {
+    username: {
         type: String,
         required: false
     },
     lessons: {
         type: mongoose.Mixed,
-        required: false
+        required: false,
     }
 })
 
