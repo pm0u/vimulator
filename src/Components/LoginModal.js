@@ -15,7 +15,7 @@ export class LoginModal extends Component {
             >
                 <section className='login-window'>
                     <h3>Please login with a provider below</h3>
-                    <section>
+                    <section className='social-buttons'>
                         <GithubLoginButton onClick={() => window.location.href='/login/github'}/>
                     </section>
                     <button className='link-button' onClick={this.props.toggleLoginWindow}>close this window</button>

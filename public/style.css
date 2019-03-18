@@ -261,6 +261,10 @@ span.emph {
   font-weight: bold;
 }
 
+.social-buttons {
+  padding:5%;
+}
+
 .pop-up-div {
   background-color: var(--bg-highlights);
   filter: opacity(80%);
