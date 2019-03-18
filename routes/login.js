@@ -3,7 +3,6 @@ const express = require('express')
 const passport = require('passport')
 const router = express.Router()
 const bcrypt = require('bcryptjs')
-const secretToken = process.env.JWT_KEY
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
 
@@ -12,10 +11,7 @@ const publicKey = process.env.JWT_PUBLIC_KEY
 
 const usersController = require('../controllers/usersController')
 
-const appUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'http://localhost:8000'
-
-const domain = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'localhost'
-
+const appUrl = process.env.NODE_ENV === 'production' ? process.env.REACT_APP_URL : 'http://localhost:3000'
 
 router
     .get('/github', passport.authenticate('github'))
@@ -28,9 +24,8 @@ router
             user = await usersController.newUserAtLogin({ displayName, ghID })
         }
         const token = jwt.sign(JSON.stringify(user[0]), privateKey)
-        res.cookie('token', token, { httpOnly:true })
+        res.cookie('token', token, { httpOnly: true })
         res.redirect(appUrl)
     })
-
 
 module.exports = router
