@@ -1,6 +1,4 @@
 import * as types from '../constants/vimActions'
-import store from '../store'
-import { bindActionCreators } from 'redux';
 
 export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     type: types.CHANGE_CURSOR_POS,

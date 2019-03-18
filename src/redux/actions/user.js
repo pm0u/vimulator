@@ -19,12 +19,26 @@ export const fetchUserData = () => {
     return async (dispatch) => {
         dispatch(fetchUserDataStart())
         const userResponse = await fetch('/api/user')
-        console.log(userResponse)
         if (userResponse.ok) {
             const user = await userResponse.json()
             dispatch(fetchUserDataSuccess(user))
         } else {
             dispatch(fetchUserDataFail(userResponse.statusText))
         }
+    }
+}
+
+export const updateLesson = (lessonId, completed = false) => {
+    return (dispatch, getState) => {
+        const vimState = getState().vim
+        dispatch({
+            type: types.UPDATE_LESSON,
+            lesson: {
+                [lessonId]: {
+                    vimState,
+                    completed
+                }
+            }
+        })
     }
 }
