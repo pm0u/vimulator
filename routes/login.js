@@ -24,7 +24,7 @@ router
             user = await usersController.newUserAtLogin({ displayName, ghID, username })
         }
         const token = jwt.sign(JSON.stringify(user), privateKey)
-        res.cookie('token', token, { httpOnly: true })
+        res.cookie('token', token)
         res.redirect(appUrl)
     })
 

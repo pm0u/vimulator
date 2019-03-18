@@ -13,9 +13,10 @@ import Cookies from 'universal-cookie'
 export class App extends Component {
     componentDidMount = () => {
         const cookies = new Cookies()
-        console.log(cookies.get('token'))
         this.props.fetchUnits()
-        this.props.fetchUserData()
+        if (cookies.get('token')) {
+            this.props.fetchUserData()
+        }
     }
     render() {
         return (
@@ -30,9 +31,9 @@ export class App extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators( { fetchUnits, fetchUserData }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ fetchUnits, fetchUserData }, dispatch)
 
 export default connect(
     null,
     mapDispatchToProps
-    )(App)
+)(App)

@@ -22,7 +22,6 @@ const verify = function (req, res, next) {
                 })
             } else {
                 req.userCredentials = decoded
-                //console.log('user verified', decoded)
                 next()
             }
         })

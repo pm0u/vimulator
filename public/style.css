@@ -88,6 +88,9 @@ header {
   grid-area: header;
   background: var(--bg-highlights);
   border-bottom: 2px solid var(--base1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #hints {
@@ -114,11 +117,6 @@ header {
   justify-content: space-evenly;
   align-items: center;
 }
-
-/*#vim-text,
-#line-nos {
-  padding: .2em 0 .2em 0;
-}*/
 
 #vim-text {
   grid-area: vim;
