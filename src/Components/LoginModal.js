@@ -18,6 +18,7 @@ export class LoginModal extends Component {
                     <section>
                         <GithubLoginButton onClick={() => window.location.href='/login/github'}/>
                     </section>
+                    <button className='link-button' onClick={this.props.toggleLoginWindow}>close this window</button>
                 </section>
             </ReactModal>
         )
