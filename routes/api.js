@@ -22,7 +22,7 @@ const verify = function (req, res, next) {
                 })
             } else {
                 req.userCredentials = decoded
-                console.log('user verified', decoded)
+                //console.log('user verified', decoded)
                 next()
             }
         })
@@ -79,6 +79,18 @@ router
             next({
                 status: 401,
                 message: 'Unauthorized'
+            })
+        }
+    })
+    .put('/user', verify, async (req, res, next) => {
+        const user = await usersController.updateUserByGHID(req.userCredentials.ghID, req.body)
+        if (!user.error) {
+            res.status(200).send(user)
+        } else {
+            next({
+                status: 404,
+                error: user.error,
+                message: 'User not found'
             })
         }
     })

@@ -17,7 +17,7 @@ exports.newUserAtLogin = ({ displayName, ghID, username }) => {
 }
 
 exports.getUserById = (ghID) => {
-    return User.find({ghID})
+    return User.find({ ghID })
 }
 
 exports.getAllUsers = (req, res) => {
@@ -25,5 +25,19 @@ exports.getAllUsers = (req, res) => {
 }
 
 exports.deleteUserByGHID = (ghID) => {
-    return User.deleteOne({ghID})
+    return User.deleteOne({ ghID })
+}
+
+exports.updateUserByGHID = async (ghID, newUser) => {
+    const user = await User.findOne({ ghID })
+    if (user.err) {
+        return ({
+            error: err
+        })
+    } else {
+        for (let key in newUser) {
+            user[key] = newUser[key]
+        }
+        return user.save()
+    }
 }

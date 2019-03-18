@@ -8,6 +8,7 @@ export const changeCurrentLesson = (newLesson, keyHandler) => {
     const currentLesson = getState().currentLesson.lesson
     if (currentLesson) {
       dispatch(userActions.updateLesson(currentLesson['_id']))
+      dispatch(userActions.postUserData())
     }
     if (lessons && lessons[newLesson['_id']]) {
       dispatch({

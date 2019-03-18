@@ -62,7 +62,7 @@ export const postUserData = () => {
         const user = getState().user
         dispatch(postUserDataStart())
         const userResponse = await fetch('/api/user', {
-            method: 'POST',
+            method: 'PUT',
             body: JSON.stringify(user),
             headers: {
                 'Accept': 'application/json',
