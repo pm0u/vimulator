@@ -6,6 +6,7 @@ import Hints from './Components/Hints'
 import Footer from './Components/Footer'
 import { connect } from 'react-redux'
 import { fetchUnits } from './redux/actions/units'
+import { fetchUserData } from './redux/actions/user'
 import { bindActionCreators } from 'redux'
 
 export class App extends Component {
@@ -26,7 +27,7 @@ export class App extends Component {
     }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators( { fetchUnits }, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators( { fetchUnits, fetchUserData }, dispatch)
 
 export default connect(
     null,

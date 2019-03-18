@@ -9,7 +9,7 @@ export class Footer extends Component {
                     <div id='footer-list'>
                         <ul id='footer-content'>
                             <li>created by <a href='mailto:paul.mourer@gmail.com'>Paul Mourer</a></li>
-                            <li>contribute on <a href='https://www.github.com/pm0u/Q1-proj-vimulator'>Github</a></li>
+                            <li>contribute on <a href='https://www.github.com/pm0u/vimulator'>Github</a></li>
                             <li><a href="#" target='_self' id='change-colors'>dark mode</a></li>
                         </ul>
                     </div>
