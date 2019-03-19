@@ -36,7 +36,8 @@
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "testPathIgnorePatterns":["mockState"]
   },
   "eslintConfig": {
     "extends": "react-app"
