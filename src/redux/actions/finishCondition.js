@@ -28,7 +28,7 @@ export const checkFinishCondition = () => {
         const finished = conditionChecker(vim, finishCond)
         if (finished) {
             const keyHandler = getState().currentLesson.keyHandler
-            document.removeEventListener('keydown',keyHandler)
+            document.removeEventListener('keydown', keyHandler)
             dispatch(finisher())
         }
     }
