@@ -77,3 +77,7 @@ export const postUserData = () => {
         }
     }
 }
+
+export const logOutUser = () => ({
+    type: types.LOGOUT_USER
+})

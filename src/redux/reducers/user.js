@@ -8,7 +8,9 @@ export default (state = initialState, action) => {
         case types.FETCH_USERDATA_SUCCESS:
             return action.user
         case types.UPDATE_LESSON:
-            return {...state, lessons: {...state.lessons, ...action.lesson}}
+            return { ...state, lessons: { ...state.lessons, ...action.lesson } }
+        case types.LOGOUT_USER:
+            return initialState
         default:
             return state
     }
