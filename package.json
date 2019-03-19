@@ -24,6 +24,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "redux-watch": "^1.1.1",
     "universal-cookie": "^3.0.7"
   },
   "scripts": {
@@ -37,7 +38,9 @@
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
-    "testPathIgnorePatterns":["mockState"]
+    "testPathIgnorePatterns": [
+      "mockState"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
