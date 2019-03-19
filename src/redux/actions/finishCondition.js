@@ -14,7 +14,7 @@ const conditionChecker = (vimState, finishCond) => {
         } else { //dont need to dig deeper and return comparison
             return finishCond[cond] === vimState[cond]
         }
-    }).every(condition => condition)
+    }).every(condition => condition) //reduce all conditions to single T/F
 }
 
 
