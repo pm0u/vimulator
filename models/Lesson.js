@@ -30,8 +30,8 @@ const LessonSchema = new Schema({
            type: Array,
            required: true
        },
-       additional:[Array],
-       resources: [Array]
+       additional: {},
+       resources: {}
    }
 })
 
