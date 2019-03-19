@@ -16,7 +16,7 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 cursorPos: { ...state.cursorPos, ...action.position },
-                furthestCol: action.furthestCol ? action.furthestCol : state.furthestCol
+                furthestCol: action.furthestCol >= 0 ? action.furthestCol : state.furthestCol
             }
         case currentLessonTypes.CHANGE_CURRENT_LESSON:
             return {
