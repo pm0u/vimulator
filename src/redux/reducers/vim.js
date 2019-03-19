@@ -32,6 +32,8 @@ export default (state = initialState, action = {}) => {
             }
         case userTypes.LOGOUT_USER:
             return initialState
+        case currentLessonTypes.RESET_CURRENT_LESSON:
+            return initialState
         default:
             return state
     }
