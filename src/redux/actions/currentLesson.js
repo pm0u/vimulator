@@ -4,8 +4,7 @@ import * as vimActions from '../actions/vim'
 
 export const changeCurrentLesson = (newLesson, keyHandler) => {
   return (dispatch, getState) => {
-    const lessons = getState().user.lessons
-    const currentLesson = getState().currentLesson.lesson
+    const { user: { lessons }, currentLesson: { lesson: currentLesson } } = getState()
     if (currentLesson) {
       dispatch(userActions.updateLesson(currentLesson['_id']))
       dispatch(userActions.postUserData())

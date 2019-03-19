@@ -1,23 +1,12 @@
 
 import * as types from '../src/redux/constants/vimActions'
 import * as actions from '../src/redux/actions/vim'
-import { unit1 } from '../src/Vim/units'
 import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
+import { initialState } from './mockState'
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
-const initialState = {
-    vim: {
-        cursorPos: unit1.lessons[0].cursorPos,
-        mode: 'NORMAL',
-        furthestCol: unit1.lessons[0].cursorPos.col
-    },
-    currentLesson: {
-        lesson: unit1.lessons[0],
-        keyHandler: null
-    }
-}
 
 describe('vim actions', () => {
     describe('cursorPos', () => {

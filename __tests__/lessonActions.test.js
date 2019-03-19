@@ -4,9 +4,6 @@ import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 import { initialState } from './mockState'
 
-
-console.log(initialState)
-
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
