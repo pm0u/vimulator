@@ -5,6 +5,10 @@ const finisher = () => ({
     type: types.LESSON_FINISHED
 })
 
+export const unfinisher = () => ({
+    type: types.LESSON_FINISHED
+})
+
 const conditionChecker = (vimState, finishCond) => {
     return Object.keys(finishCond).map(cond => {
         if (typeof finishCond[cond] === 'object' && typeof vimState[cond] !== 'object') { // finishcondition has multiple conditions, but vimstate is ready to compare
@@ -23,6 +27,8 @@ export const checkFinishCondition = () => {
         const { vim, currentLesson: { lesson: { finishCond } } } = getState()
         const finished = conditionChecker(vim, finishCond)
         if (finished) {
+            const keyHandler = getState().currentLesson.keyHandler
+            document.removeEventListener('keydown',keyHandler)
             dispatch(finisher())
         }
     }
