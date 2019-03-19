@@ -11,6 +11,14 @@ const UserSchema = new Schema({
     ghID: {
         type: String,
         required: true
+    },
+    username: {
+        type: String,
+        required: false
+    },
+    lessons: {
+        type: mongoose.Mixed,
+        required: false,
     }
 })
 

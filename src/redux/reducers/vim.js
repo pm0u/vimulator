@@ -16,13 +16,18 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 cursorPos: { ...state.cursorPos, ...action.position },
-                furthestCol: action.furthestCol ? action.furthestCol : state.furthestCol
+                furthestCol: action.furthestCol >= 0 ? action.furthestCol : state.furthestCol
             }
         case currentLessonTypes.CHANGE_CURRENT_LESSON:
             return {
                 ...state,
                 cursorPos: action.newLesson.cursorPos,
-                furthestCol: action.newLesson.cursorPos.col
+                furthestCol: action.newLesson.cursorPos.col,
+                mode: 'NORMAL'
+            }
+        case types.SET_VIM_STATE:
+            return {
+                ...action.vimState
             }
         default:
             return state

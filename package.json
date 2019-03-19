@@ -16,8 +16,10 @@
     "passport-github": "^1.1.0",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "react-modal": "^3.8.1",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "react-social-login-buttons": "^2.3.0",
     "redux": "^4.0.1",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
@@ -34,7 +36,8 @@
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
-    }
+    },
+    "testPathIgnorePatterns":["mockState"]
   },
   "eslintConfig": {
     "extends": "react-app"

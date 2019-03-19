@@ -22,19 +22,26 @@ const verify = function (req, res, next) {
                 })
             } else {
                 req.userCredentials = decoded
-                console.log('user verified', decoded)
                 next()
             }
         })
 }
 
 router
-    .get('/user', verify, (req, res) => {
+    .get('/user', verify, (req, res, next) => {
         usersController.getUserById(req.userCredentials.ghID).then((user, err) => {
-            res.status(200).send(`${user}`)
+            if (user.length > 0) {
+                res.status(200).send(user[0])
+            } else {
+                next({
+                    status: 404,
+                    error: user,
+                    message: 'User not found'
+                })
+            }
         })
     })
-    .get('/users', verify, async (req, res) => {
+    .get('/users', verify, async (req, res, next) => {
         const { ghID } = req.userCredentials
         if (ghID === process.env.MONGODB_ADMIN_ID) {
             const users = await usersController.getAllUsers()
@@ -42,7 +49,7 @@ router
                 res.status(200).send(users)
             } else {
                 next({
-                    status: 204,
+                    status: 404,
                     error: users,
                     message: 'No users exist'
                 })
@@ -71,6 +78,18 @@ router
             next({
                 status: 401,
                 message: 'Unauthorized'
+            })
+        }
+    })
+    .put('/user', verify, async (req, res, next) => {
+        const user = await usersController.updateUserByGHID(req.userCredentials.ghID, req.body)
+        if (!user.error) {
+            res.status(200).send(user)
+        } else {
+            next({
+                status: 404,
+                error: user.error,
+                message: 'User not found'
             })
         }
     })
