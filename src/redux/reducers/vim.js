@@ -1,5 +1,6 @@
 import * as types from '../constants/vimActions'
 import * as currentLessonTypes from '../constants/currentLessonActions'
+import * as userTypes from '../constants/userActions'
 
 export const initialState = {
     cursorPos: {
@@ -29,6 +30,8 @@ export default (state = initialState, action = {}) => {
             return {
                 ...action.vimState
             }
+        case userTypes.LOGOUT_USER:
+            return initialState
         default:
             return state
     }

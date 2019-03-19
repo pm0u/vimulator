@@ -1,4 +1,5 @@
 import * as types from '../constants/currentLessonActions'
+import * as userTypes from '../constants/userActions'
 
 const initialState = {
     lesson: null,
@@ -9,6 +10,8 @@ export default (state = initialState, action = {}) => {
     switch (action.type) {
         case types.CHANGE_CURRENT_LESSON:
             return { lesson: action.newLesson, keyHandler: action.keyHandler }
+        case userTypes.LOGOUT_USER:
+            return initialState
         default:
             return state
     }
