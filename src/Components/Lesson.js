@@ -7,14 +7,18 @@ export class Lesson extends Component {
 
   render() {
     return (
-      <li><button onClick={() => this.props.changeCurrentLesson(this.props.lesson, this.props.unit)} className='link-button'>{this.props.lesson.name}</button></li>
+      <li><button onClick={() => this.props.changeCurrentLesson(this.props.lesson, this.props.unit)} className='link-button'>{this.props.lesson.name}</button>{this.props.userLessons && this.props.userLessons[this.props.lesson['_id']].completed ? ' ✔' : null }</li>
     )
   }
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators({ changeCurrentLesson }, dispatch)
 
+const mapStateToProps = state => ({
+  userLessons: state.user.lessons
+})
+
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Lesson)

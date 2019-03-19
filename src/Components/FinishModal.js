@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactModal from 'react-modal'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { nextLesson } from '../redux/actions/currentLesson'
 
 export class FinishModal extends Component {
     render() {
@@ -19,14 +20,14 @@ export class FinishModal extends Component {
                     <div>
                         <button className='link-button' onClick={this.props.toggleLoginWindow}>restart this lesson</button>
                         <button className='link-button' onClick={this.props.toggleLoginWindow}>close this window</button>
-                        <button className='link-button' onClick={this.props.toggleLoginWindow}>start next lesson</button>
+                        <button className='link-button' onClick={this.props.nextLesson}>start next lesson</button>
                     </div>
                 </section>
             </ReactModal>
         )
     }
 }
-const mapDispatchToProps = dispatch => bindActionCreators({}, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators({ nextLesson }, dispatch)
 
 const mapStateToProps = state => ({
     finishWindow: state.finishWindow

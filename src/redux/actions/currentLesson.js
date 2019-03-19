@@ -5,13 +5,13 @@ import keyHandler from '../../Vim/keyHandler'
 
 export const changeCurrentLesson = (newLesson, unit) => {
   return (dispatch, getState) => {
-    const { user: { lessons }, currentLesson: { keyHandler: oldKeyHandler, lesson: currentLesson } } = getState()
-    document.removeEventListener('keydown', oldKeyHandler)
+    const { user: { lessons }, currentLesson: { keyHandler: oldKeyHandler, lesson: currentLesson }, finishWindow } = getState()
     if (currentLesson) {
-      dispatch(userActions.updateLesson(currentLesson['_id']))
+      dispatch(userActions.updateLesson(currentLesson['_id'], finishWindow))
       dispatch(userActions.postUserData())
     }
-    if (lessons.length > 0 && lessons[newLesson['_id']]) {
+    document.removeEventListener('keydown', oldKeyHandler)
+    if (lessons && lessons[newLesson['_id']]) {
       dispatch({
         type: types.CHANGE_CURRENT_LESSON,
         unit,
@@ -37,14 +37,14 @@ export const nextLesson = () => {
     const lessonIndex = unit.lessons.indexOf(lesson)
     if (lessonIndex < unit.lessons.length - 1) {
       //change lesson with next index
-      dispatch(changeCurrentLesson(unit.lessons[lessonIndex + 1], unit, keyHandler))
+      dispatch(changeCurrentLesson(unit.lessons[lessonIndex + 1], unit))
     } else {
       //is last lesson for unit
       const unitIndex = units.indexOf(unit)
       const newUnit = units[unitIndex + 1]
       if (unitIndex < units.length - 1) {
         //there are more units
-        dispatch(changeCurrentLesson(newUnit, newUnit.lessons[0], keyHandler))
+        dispatch(changeCurrentLesson(newUnit, newUnit.lessons[0]))
       } else {
         //no more units
         //display popo up that they should contribute
