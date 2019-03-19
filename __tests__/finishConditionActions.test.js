@@ -19,11 +19,11 @@ describe('Finish condition Actions', () => {
             ...initialState,
             currentLesson: {
                 ...initialState.currentLesson,
-                lesson: initialState.units.lessons[1]
+                lesson: initialState.units[0].lessons[1]
             },
             vim: {
                 ...initialState.vim,
-                ...initialState.units.lessons[1].finishCond
+                ...initialState.units[0].lessons[1].finishCond
             }
         }
         const expectedAction = {
@@ -39,12 +39,12 @@ describe('Finish condition Actions', () => {
             ...initialState,
             currentLesson: {
                 ...initialState.currentLesson,
-                lesson: initialState.units.lessons[0]
+                lesson: initialState.units[0].lessons[0]
             },
             vim: {
                 ...initialState.vim,
                 cursorPos: {
-                    ...initialState.units.lessons[0].finishCond.cursorPos,
+                    ...initialState.units[0].lessons[0].finishCond.cursorPos,
                     row: 0
                 }
             }

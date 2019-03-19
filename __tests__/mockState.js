@@ -1,6 +1,6 @@
 import { unit1 } from '../src/Vim/units'
 export const initialState = {
-    units: unit1,
+    units: [unit1],
     vim: {
         cursorPos: unit1.lessons[0].cursorPos,
         mode: 'NORMAL',
