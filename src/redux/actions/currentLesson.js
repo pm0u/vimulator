@@ -8,7 +8,7 @@ const changeLesson = (unit, newLesson) => ({
   type: types.CHANGE_CURRENT_LESSON,
   unit,
   newLesson,
-  keyHandler
+  keyHandler: (e) => keyHandler(e)
 })
 
 export const changeCurrentLesson = (newLesson, unit) => {
