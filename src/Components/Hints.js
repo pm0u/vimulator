@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { restartLesson } from '../redux/actions/currentLesson'
 
 export class Hints extends Component {
 
@@ -11,17 +13,17 @@ export class Hints extends Component {
             return (
                 <div id='hints-content'>
                     <h4>{hints.title}</h4>
-                    {hints.text.map(p => {
+                    {hints.text.map((p, i) => {
                         return (
-                            <p>{p}</p>
+                            <p key={i}>{p}</p>
                         )
                     })}
                     {hints.additional ? <details>
                         <summary>Additional Hints</summary>
                         <p>{hints.additional}</p>
                     </details> : null}
-                    {hints.resources ? <details><summary>Additional Resources</summary> {hints.resources.map(link => {
-                        return (<><a href={link.href}>{link.text}</a><br /></>)
+                    {hints.resources ? <details><summary>Additional Resources</summary> {hints.resources.map((link, i) => {
+                        return (<><a key={i} href={link.href}>{link.text}</a><br key={`b${i}`} /></>)
                     })}</details> : null}
                 </div>
             )
@@ -32,12 +34,17 @@ export class Hints extends Component {
             )
         }
     }
+
+    renderReset = () => {
+        return (<button id='reset' className='link-button' onClick={this.props.restartLesson} {...this.props.currentLesson.lesson ? null : { disabled: true }}>reset lesson</button>)
+    }
+
     render() {
         return (
             <div id='hints'>
                 {this.renderHints()}
                 <div id='save-reset'>
-                    <button id='reset' className='link-button'>reset lesson</button>
+                    {this.renderReset()}
                 </div>
             </div>
         )
@@ -48,8 +55,10 @@ const mapStateToProps = state => ({
     currentLesson: state.currentLesson
 })
 
+const mapDispatchToProps = dispatch => bindActionCreators({ restartLesson }, dispatch)
+
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Hints)

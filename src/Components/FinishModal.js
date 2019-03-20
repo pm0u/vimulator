@@ -19,7 +19,6 @@ export class FinishModal extends Component {
                     </section>
                     <div className='finish-buttons'>
                         <button className='link-button' onClick={this.props.restartLesson}>restart this lesson</button>
-                        <button className='link-button' onClick={this.props.toggleLoginWindow}>close this window</button>
                         <button className='link-button' onClick={this.props.nextLesson}>start next lesson</button>
                     </div>
                 </section>
