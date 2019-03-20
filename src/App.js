@@ -5,6 +5,7 @@ import VimArea from './Components/VimArea'
 import Hints from './Components/Hints'
 import Footer from './Components/Footer'
 import LoginModal from './Components/LoginModal'
+import FinishModal from './Components/FinishModal'
 import { connect } from 'react-redux'
 import { fetchUnits } from './redux/actions/units'
 import { fetchUserData } from './redux/actions/user'
@@ -30,6 +31,7 @@ export class App extends Component {
                 <Hints />
                 <Footer />
                 <LoginModal />
+                <FinishModal />
             </>
         )
     }

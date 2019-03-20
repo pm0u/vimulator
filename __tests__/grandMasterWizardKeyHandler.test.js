@@ -1,17 +1,29 @@
-import { grandMasterWizardKeyHandler } from '../src/Vim/grandMasterWizardKeyHandler'
+import grandMasterWizardKeyHandler from '../src/Vim/grandMasterWizardKeyHandler'
 import * as types from '../src/redux/constants/vimActions'
 import * as actions from '../src/redux/actions/vim'
+import thunk from 'redux-thunk'
+import configureStore from 'redux-mock-store'
+import { initialState } from './mockState'
+const middlewares = [thunk];
+const mockStore = configureStore(middlewares);
 
-
-describe('grandMasterWizardKeyHandler', () => {
+xdescribe('grandMasterWizardKeyHandler', () => {
     describe('--NORMAL--', () => {
         describe('h', () => {
             it('should dispatch a -1 cursormove when h is pressed', () => {
-                const expectedAction = { action: actions.changeCursorCol, params: [-1] }
-                expect(grandMasterWizardKeyHandler('h', { h: true }, 'NORMAL')).toEqual(expectedAction)
+                const store = mockStore(initialState)
+                const expectedAction = {
+                    type: types.CHANGE_CURSOR_POS,
+                    furthestCol: initialState.vim.furthestCol - 1,
+                    position: {
+                        col: initialState.vim.cursorPos.col - 1
+                    }
+                }
+                store.dispatch(grandMasterWizardKeyHandler({key:'h'}))
+                expect(store.getActions()).toContainEqual(expectedAction)
             })
             it('should do nothing when h is disabled', () => {
-                expect(grandMasterWizardKeyHandler('h', { h: false }, 'NORMAL')).toBeUndefined()
+
             })
         })
         describe('j', () => {

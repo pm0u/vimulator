@@ -22,15 +22,15 @@ export default (state = initialState, action = {}) => {
         case currentLessonTypes.CHANGE_CURRENT_LESSON:
             return {
                 ...state,
-                cursorPos: action.newLesson.cursorPos,
-                furthestCol: action.newLesson.cursorPos.col,
-                mode: 'NORMAL'
+                ...action.newLesson.vimState
             }
         case types.SET_VIM_STATE:
             return {
                 ...action.vimState
             }
         case userTypes.LOGOUT_USER:
+            return initialState
+        case currentLessonTypes.RESET_CURRENT_LESSON:
             return initialState
         default:
             return state

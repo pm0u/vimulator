@@ -1,31 +1,13 @@
-import * as actions from '../redux/actions/vim'
+import store from '../redux/store'
+import keyHandler from './keys'
 
-export const grandMasterWizardKeyHandler = (key, keys, mode) => {
+export default (e) => {
     // the grandMasterWizardKeyHandler decreeth:
     // let the keyboard do things!
     // huzzah!
-    switch (keys[key] && key) {
-        case 'h':
-            if (mode === 'NORMAL') {
-                return { action:actions.changeCursorCol , params:[-1] }
-            }
-            break
-        case 'l':
-            if (mode === 'NORMAL') {
-                return { action:actions.changeCursorCol , params:[1] }
-            }
-            break
-        case 'j':
-            if (mode === 'NORMAL') {
-                return { action:actions.changeCursorRow , params:[1] }
-            }
-            break
-        case 'k':
-            if (mode === 'NORMAL') {
-                return { action:actions.changeCursorRow , params:[-1] }
-            }
-            break
-        default:
-            break
+    const key = e.key
+    const { currentLesson: { lesson: { keys } }, vim: { mode } } = store.getState()
+    if (keys[key]) {
+        keyHandler[mode][key](store.dispatch)
     }
 }

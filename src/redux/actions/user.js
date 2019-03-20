@@ -42,7 +42,7 @@ export const fetchUserData = () => {
     }
 }
 
-export const updateLesson = (lessonId, completed = false) => {
+export const saveLesson = (lessonId, completed = false) => {
     return (dispatch, getState) => {
         const vimState = getState().vim
         dispatch({
@@ -50,6 +50,20 @@ export const updateLesson = (lessonId, completed = false) => {
             lesson: {
                 [lessonId]: {
                     vimState,
+                    completed
+                }
+            }
+        })
+    }
+}
+
+export const updateLesson = (lesson, vimState = null, completed = false) => {
+    return (dispatch, getState) => {
+        dispatch({
+            type: types.UPDATE_LESSON,
+            lesson: {
+                [lesson['_id']]: {
+                    vimState: vimState ? vimState : lesson.vimState,
                     completed
                 }
             }
