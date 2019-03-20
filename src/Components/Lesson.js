@@ -8,7 +8,7 @@ export class Lesson extends Component {
   render() {
     return (
       <li>
-        {this.props.user.lessons && this.props.user.lessons[this.props.lesson['_id']].completed ? '✔ ' : '- '}
+        {this.props.user.lessons && this.props.user.lessons[this.props.lesson['_id']] && this.props.user.lessons[this.props.lesson['_id']].completed ? '✔ ' : '- '}
         <button
           onClick={() => this.props.changeCurrentLesson(this.props.lesson, this.props.unit)}
           className={`link-button ${this.props.currentLesson && this.props.currentLesson['_id'] === this.props.lesson['_id'] ? 'bold' : null}`}>
