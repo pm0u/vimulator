@@ -1,14 +1,14 @@
 import * as types from '../constants/currentLessonActions'
 import * as userActions from '../actions/user'
 import * as vimActions from '../actions/vim'
-import keyHandler from '../../Vim/keyHandler'
+import keyHandler from '../../Vim/grandMasterWizardKeyHandler'
 
 
 const changeLesson = (unit, newLesson) => ({
   type: types.CHANGE_CURRENT_LESSON,
   unit,
   newLesson,
-  keyHandler: (e) => { keyHandler(e)}
+  keyHandler
 })
 
 export const changeCurrentLesson = (newLesson, unit) => {
