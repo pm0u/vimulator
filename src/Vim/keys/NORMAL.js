@@ -5,4 +5,7 @@ export default {
     j: (dispatch) => dispatch(actions.changeCursorRow(1)),
     k: (dispatch) => dispatch(actions.changeCursorRow(-1)),
     l: (dispatch) => dispatch(actions.changeCursorCol(1)),
+    0: (dispatch) => dispatch(actions.firstChar()),
+    '_$': (dispatch) => dispatch(actions.lastChar()),
+    '^': (dispatch) => dispatch(actions.firstNonEmpty())
 }

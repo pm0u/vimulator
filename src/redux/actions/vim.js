@@ -55,3 +55,38 @@ export const changeCursorCol = colMove => {
         }
     }
 }
+
+
+export const firstChar = () => {
+    return (dispatch) => {
+        dispatch({
+            type: types.CHANGE_CURSOR_POS,
+            position: { col: 0 },
+            furthestCol: 0
+        })
+    }
+}
+
+export const lastChar = () => {
+    return (dispatch, getState) => {
+        const { vim: { cursorPos }, currentLesson: { lesson } } = getState()
+        const col = lesson.lessonText[cursorPos.row].length - 1
+        dispatch({
+            type: types.CHANGE_CURSOR_POS,
+            position: { col },
+            furthestCol: col
+        })
+    }
+}
+
+export const firstNonEmpty = () => {
+    return (dispatch, getState) => {
+        const { vim: { cursorPos }, currentLesson: { lesson } } = getState()
+        const col = lesson.lessonText[cursorPos.row].search(/\w/)
+        dispatch({
+            type: types.CHANGE_CURSOR_POS,
+            position: { col },
+            furthestCol: col
+        })
+    }
+}
