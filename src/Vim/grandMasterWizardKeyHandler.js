@@ -1,4 +1,5 @@
 import * as actions from '../redux/actions/vim'
+import store from '../redux/store'
 
 export const grandMasterWizardKeyHandler = (key, keys, mode) => {
     // the grandMasterWizardKeyHandler decreeth:
