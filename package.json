@@ -54,6 +54,7 @@
   "devDependencies": {
     "babel-plugin-wildcard": "^5.0.0",
     "enzyme": "^3.9.0",
+    "pretty-format": "^24.5.0",
     "redux-mock-store": "^1.5.3",
     "surge": "^0.20.1"
   },
