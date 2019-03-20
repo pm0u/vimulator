@@ -10,7 +10,7 @@ export class VimText extends Component {
             return (
                 <>
                     {this.props.currentLesson.lesson.lessonText.map((line, lineNo) => {
-                        return <CodeLine cursorPos={lineNo === cursorPos.row ? cursorPos.col : null} line={line} lineNo={lineNo + 1} />
+                        return <CodeLine cursorPos={lineNo === cursorPos.row ? cursorPos.col : null} line={line} lineNo={lineNo + 1} key={lineNo}/>
                     })}
                 </>
             )
