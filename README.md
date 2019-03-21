@@ -23,7 +23,7 @@ I would like the website to mimic the look of vim in the terminal as much as pos
 
 ### ERD
 
-ERD can be viewed [here](https://www.lucidchart.com/invitations/accept/5db5c8dd-013c-4f0d-9e34-84e3d3ca4ff5). This will really only be to store user info and associate it with completed lessons. A stretch goal is to store lessons in a mongoDB database and access lessons dynamically.
+This project utilizes mongoDB and does not have any relational data. There are validations available in the models directory.
 
 ### MVP / proof of concept
 
