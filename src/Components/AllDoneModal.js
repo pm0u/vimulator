@@ -26,7 +26,7 @@ export class AllDoneModal extends Component {
                     <div className='finish-buttons'>
                         <button className='link-button' onClick={this.props.restartAllLessons}>restart all lessons</button>
                         <button className='link-button' onClick={this.closeWindow}>close this window</button>
-                        <a href='https://www.github.com/pm0u/vimulator' target='_blank'><button className='link-button'>check out the github repo</button></a>
+                        <a href='https://www.github.com/pm0u/vimulator' target='_blank' rel='noopener noreferrer'><button className='link-button'>check out the github repo</button></a>
                     </div>
                 </section>
             </ReactModal>
