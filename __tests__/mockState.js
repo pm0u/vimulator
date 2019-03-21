@@ -1,4 +1,4 @@
-import { unit1 } from '../src/Vim/units'
+import { unit1 } from '../src/units'
 export const initialState = {
     units: [unit1],
     vim: {

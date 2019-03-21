@@ -1,4 +1,4 @@
-import store from '../redux/store'
+import store from   '../store' 
 import keyHandler from './keys'
 
 export default (e) => {

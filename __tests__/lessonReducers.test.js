@@ -1,6 +1,6 @@
 import * as types from '../src/redux/constants/currentLessonActions'
 import reducer from '../src/redux/reducers/currentLesson'
-import { unit1 } from '../src/Vim/units'
+import { unit1 } from '../src/units'
 
 describe('lessons reducer', () => {
     it('should return initial state', () => {

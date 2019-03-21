@@ -1,5 +1,5 @@
 import * as types from '../constants/finishConditionActions'
-import keyHandler from '../../Vim/grandMasterWizardKeyHandler'
+import keyHandler from './grandMasterWizardKeyHandler'
 
 
 const finisher = () => ({

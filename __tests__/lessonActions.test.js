@@ -3,7 +3,7 @@ import * as actions from '../src/redux/actions/currentLesson'
 import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 import { initialState } from './mockState'
-import keyHandler from '../src/Vim/grandMasterWizardKeyHandler'
+import keyHandler from '../src/redux/actions/grandMasterWizardKeyHandler'
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

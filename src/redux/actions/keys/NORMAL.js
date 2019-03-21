@@ -1,4 +1,4 @@
-import * as actions from '../../redux/actions/vim'
+import * as actions from '../vim'
 
 export default {
     h: (dispatch) => dispatch(actions.changeCursorCol(-1)),
