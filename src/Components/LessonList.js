@@ -6,7 +6,7 @@ export class LessonsList extends Component {
     renderUnits = () => {
         if (this.props.units) {
             return this.props.units.map((unit,i) => {
-                return <Unit key={i} unit={unit} {...i === 0 ? {open:true} : null} />
+                return <Unit key={i} unit={unit} open={true} />
             })
         }
     }
@@ -21,7 +21,8 @@ export class LessonsList extends Component {
 
 
 const mapStateToProps = state => ({
-    units: state.units
+    units: state.units,
+    currentUnit: state.currentLesson.unit
 })
 
 export default connect(

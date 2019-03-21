@@ -1,4 +1,5 @@
 import * as types from '../constants/vimActions'
+import { checkFinishCondition } from './finishCondition'
 
 export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     type: types.CHANGE_CURSOR_POS,
@@ -33,6 +34,7 @@ export const changeCursorRow = (rowMove) => {
                 }
             )
         }
+        dispatch(checkFinishCondition())
     }
 }
 
@@ -53,6 +55,7 @@ export const changeCursorCol = colMove => {
                 }
             )
         }
+        dispatch(checkFinishCondition())
     }
 }
 
@@ -64,6 +67,7 @@ export const firstChar = () => {
             position: { col: 0 },
             furthestCol: 0
         })
+        dispatch(checkFinishCondition())
     }
 }
 
@@ -76,6 +80,7 @@ export const lastChar = () => {
             position: { col },
             furthestCol: col
         })
+        dispatch(checkFinishCondition())
     }
 }
 
@@ -88,5 +93,30 @@ export const firstNonEmpty = () => {
             position: { col },
             furthestCol: col
         })
+        dispatch(checkFinishCondition())
+    }
+}
+
+export const downAndFirstNonEmpty = () => {
+    return (dispatch, getState) => {
+        const row = getState().vim.cursorPos.row
+        dispatch(changeCursorRow(1))
+        const newRow = getState().vim.cursorPos.row
+        if (newRow !== row) {
+            dispatch(firstNonEmpty())
+        }
+        dispatch(checkFinishCondition())
+    }
+}
+
+export const upAndFirstNonEmpty = () => {
+    return (dispatch, getState) => {
+        const row = getState().vim.cursorPos.row
+        dispatch(changeCursorRow(-1))
+        const newRow = getState().vim.cursorPos.row
+        if (newRow !== row) {
+            dispatch(firstNonEmpty())
+        }
+        dispatch(checkFinishCondition())
     }
 }

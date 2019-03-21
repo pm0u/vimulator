@@ -1,4 +1,5 @@
 import * as types from '../constants/finishConditionActions'
+import keyHandler from '../../Vim/grandMasterWizardKeyHandler'
 
 
 const finisher = () => ({
@@ -27,7 +28,6 @@ export const checkFinishCondition = () => {
         const { vim, currentLesson: { lesson: { finishCond } } } = getState()
         const finished = conditionChecker(vim, finishCond)
         if (finished) {
-            const keyHandler = getState().currentLesson.keyHandler
             document.removeEventListener('keydown', keyHandler)
             dispatch(finisher())
         }

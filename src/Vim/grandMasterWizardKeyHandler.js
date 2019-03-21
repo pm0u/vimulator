@@ -10,5 +10,7 @@ export default (e) => {
     const { currentLesson: { lesson: { keys } }, vim: { mode } } = store.getState()
     if (keys[key]) {
         keyHandler[mode][key](store.dispatch)
+    } else {
+        // display a warning/error/hint thing
     }
 }
