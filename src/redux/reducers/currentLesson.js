@@ -1,6 +1,5 @@
 import * as types from '../constants/currentLessonActions'
 import * as userTypes from '../constants/userActions'
-import * as finishTypes from '../constants/finishConditionActions'
 
 const initialState = {
     unit: null,

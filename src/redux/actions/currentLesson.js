@@ -62,7 +62,7 @@ export const nextLesson = () => {
 
 export const restartLesson = () => {
   return (dispatch, getState) => {
-    const { user: { lessons }, currentLesson: { lesson: currentLesson, unit } } = getState()
+    const { currentLesson: { lesson: currentLesson, unit } } = getState()
     dispatch(userActions.updateLesson(currentLesson))
     dispatch(changeLesson(currentLesson, unit))
     document.addEventListener('keydown', keyHandler)
