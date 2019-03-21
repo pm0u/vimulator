@@ -24,9 +24,3 @@ I would like the website to mimic the look of vim in the terminal as much as pos
 ### ERD
 
 This project utilizes mongoDB and does not have any relational data. There are validations available in the models directory.
-
-### MVP / proof of concept
-
-The current proof of concept is live at http://vimulator.surge.sh/html/index.html
-
-there is admittedly still a lot to be done to make it efficient and viable.
