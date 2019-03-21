@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Login from './Login'
+import KeyReminder from './KeyReminder'
 
 
 export class Header extends Component {
@@ -17,6 +18,7 @@ export class Header extends Component {
                             </li>
                         </ul>
                     </nav>
+                    <KeyReminder />
                     <Login />
                 </header>
             </>

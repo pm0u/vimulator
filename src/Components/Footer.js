@@ -12,7 +12,7 @@ export class Footer extends Component {
                     <div id='footer-list'>
                         <ul id='footer-content'>
                             <li>created by <a href='mailto:paul.mourer@gmail.com'>Paul Mourer</a></li>
-                            <li><a href='https://pm0u.github.io' target='_blank' ref='noopener noreferral'>pm0u.github.io</a></li>
+                            <li><a href='https://pm0u.github.io' target='_blank' rel='noopener noreferrer'>pm0u.github.io</a></li>
                             <li>contribute on <a href='https://www.github.com/pm0u/vimulator'>Github</a></li>
                         </ul>
                     </div>

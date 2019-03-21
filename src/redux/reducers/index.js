@@ -6,5 +6,6 @@ import user from './user'
 import loginWindow from './loginWindow'
 import finishWindow from './finishWindow'
 import allDone from './allDone'
+import keyHint from './keyHint'
 
-export default combineReducers({ units, currentLesson, vim, user, loginWindow, finishWindow, allDone })
+export default combineReducers({ units, currentLesson, vim, user, loginWindow, finishWindow, allDone, keyHint })
