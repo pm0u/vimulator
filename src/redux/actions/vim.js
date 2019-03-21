@@ -90,3 +90,25 @@ export const firstNonEmpty = () => {
         })
     }
 }
+
+export const downAndFirstNonEmpty = () => {
+    return (dispatch, getState) => {
+        const row = getState().vim.cursorPos.row
+        dispatch(changeCursorRow(1))
+        const newRow = getState().vim.cursorPos.row
+        if (newRow !== row) {
+            dispatch(firstNonEmpty())
+        }
+    }
+}
+
+export const upAndFirstNonEmpty = () => {
+    return (dispatch, getState) => {
+        const row = getState().vim.cursorPos.row
+        dispatch(changeCursorRow(-1))
+        const newRow = getState().vim.cursorPos.row
+        if (newRow !== row) {
+            dispatch(firstNonEmpty())
+        }
+    }
+}

@@ -1,10 +1,11 @@
 import * as types from '../constants/currentLessonActions'
 import * as userActions from '../actions/user'
 import * as vimActions from '../actions/vim'
+import * as allDoneTypes from '../constants/allDoneActions'
 import keyHandler from '../../Vim/grandMasterWizardKeyHandler'
 
 
-const changeLesson = (unit, newLesson) => ({
+const changeLesson = (newLesson, unit) => ({
   type: types.CHANGE_CURRENT_LESSON,
   unit,
   newLesson,
@@ -20,10 +21,10 @@ export const changeCurrentLesson = (newLesson, unit) => {
     }
     document.removeEventListener('keydown', oldKeyHandler)
     if (lessons && lessons[newLesson['_id']]) {
-      dispatch(changeLesson(unit, newLesson))
+      dispatch(changeLesson(newLesson, unit))
       dispatch(vimActions.setVimState(lessons[newLesson['_id']].vimState))
     } else {
-      dispatch(changeLesson(unit, newLesson))
+      dispatch(changeLesson(newLesson, unit))
     }
     document.addEventListener('keydown', keyHandler)
   }
@@ -42,10 +43,13 @@ export const nextLesson = () => {
       const newUnit = units[unitIndex + 1]
       if (unitIndex < units.length - 1) {
         //there are more units
-        dispatch(changeCurrentLesson(newUnit, newUnit.lessons[0]))
+        dispatch(changeCurrentLesson(newUnit.lessons[0]))
       } else {
         //no more units
         //display popo up that they should contribute
+        dispatch({
+
+        })
       }
     }
   }
@@ -55,8 +59,7 @@ export const nextLesson = () => {
 export const restartLesson = () => {
   return (dispatch, getState) => {
     const { user: { lessons }, currentLesson: { lesson: currentLesson, unit } } = getState()
-    console.log(currentLesson)
     dispatch(userActions.updateLesson(currentLesson))
-    dispatch(changeLesson(unit, currentLesson))
+    dispatch(changeLesson(currentLesson, unit))
   }
 }

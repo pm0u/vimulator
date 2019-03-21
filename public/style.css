@@ -361,6 +361,19 @@ a#home:hover {
   width: 100%;
 }
 
-.bold {
-  font-weight: bold;
+.button-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lesson-button {
+  width: 100%;
+}
+
+.lesson-button-text {
+  float: left;
+}
+
+.indicator {
+  float: right;
 }

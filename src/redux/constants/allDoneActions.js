@@ -1,0 +1,1 @@
+export const TOGGLE_ALL_DONE = 'TOGGLE_ALL_DONE'

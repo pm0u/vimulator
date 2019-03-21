@@ -4,8 +4,8 @@ import thunk from 'redux-thunk'
 import configureStore from 'redux-mock-store'
 import { initialState } from './mockState'
 
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
+const middlewares = [thunk]
+const mockStore = configureStore(middlewares)
 
 describe('Finish condition Actions', () => {
     it('should do nothing if finish condition not met', () => {
