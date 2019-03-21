@@ -1,1 +1,3 @@
 export const TOGGLE_ALL_DONE = 'TOGGLE_ALL_DONE'
+export const CLOSE_ALL_DONE = 'CLOSE_ALL_DONE'
+export const OPEN_ALL_DONE = 'OPEN_ALL_DONE'

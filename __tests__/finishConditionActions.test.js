@@ -7,7 +7,7 @@ import { initialState } from './mockState'
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
 
-describe('Finish condition Actions', () => {
+xdescribe('Finish condition Actions', () => {
     it('should do nothing if finish condition not met', () => {
         const store = mockStore(initialState)
 

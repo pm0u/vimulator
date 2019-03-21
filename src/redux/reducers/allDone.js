@@ -7,6 +7,10 @@ export default (state = initialState, action) => {
 
         case types.TOGGLE_ALL_DONE:
             return !state
+        case types.CLOSE_ALL_DONE:
+            return false
+        case types.OPEN_ALL_DONE:
+            return true
         default:
             return state
     }
