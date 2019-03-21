@@ -61,7 +61,7 @@ router
             })
         }
     })
-    .delete('/user/:ghID', verify, async (req, res, next) => {
+    .delete('/users/:ghID', verify, async (req, res, next) => {
         const { ghID } = req.userCredentials
         if (ghID === process.env.MONGODB_ADMIN_ID) {
             const user = await usersController.deleteUserByGHID(req.params.ghID)
