@@ -1,4 +1,4 @@
-import grandMasterWizardKeyHandler from '../src/Vim/grandMasterWizardKeyHandler'
+import grandMasterWizardKeyHandler from '../src/redux/actions/grandMasterWizardKeyHandler'
 import * as types from '../src/redux/constants/vimActions'
 import * as actions from '../src/redux/actions/vim'
 import thunk from 'redux-thunk'

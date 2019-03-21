@@ -3,7 +3,7 @@ import * as userActions from '../actions/user'
 import * as vimActions from '../actions/vim'
 import * as allDoneTypes from '../constants/allDoneActions'
 import * as finishTypes from '../constants/finishConditionActions'
-import keyHandler from '../../Vim/grandMasterWizardKeyHandler'
+import keyHandler from './grandMasterWizardKeyHandler'
 
 const changeLesson = (newLesson, unit) => ({
   type: types.CHANGE_CURRENT_LESSON,
