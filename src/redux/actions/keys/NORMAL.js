@@ -1,14 +1,14 @@
 import * as actions from '../vim'
 
 export default {
-    h: (dispatch) => dispatch(actions.changeCursorCol(-1)),
-    j: (dispatch) => dispatch(actions.changeCursorRow(1)),
-    k: (dispatch) => dispatch(actions.changeCursorRow(-1)),
-    l: (dispatch) => dispatch(actions.changeCursorCol(1)),
-    0: (dispatch) => dispatch(actions.firstChar()),
+    '_h': (dispatch) => dispatch(actions.changeCursorCol(-1)),
+    '_j': (dispatch) => dispatch(actions.changeCursorRow(1)),
+    '_k': (dispatch) => dispatch(actions.changeCursorRow(-1)),
+    '_l': (dispatch) => dispatch(actions.changeCursorCol(1)),
+    '_0': (dispatch) => dispatch(actions.firstChar()),
     '_$': (dispatch) => dispatch(actions.lastChar()),
-    '^': (dispatch) => dispatch(actions.firstNonEmpty()),
-    '_': (dispatch) => dispatch(actions.firstNonEmpty()),
-    '-': (dispatch) => dispatch(actions.upAndFirstNonEmpty()),
-    '+': (dispatch) => dispatch(actions.downAndFirstNonEmpty())
+    '_^': (dispatch) => dispatch(actions.firstNonEmpty()),
+    '__': (dispatch) => dispatch(actions.firstNonEmpty()),
+    '_-': (dispatch) => dispatch(actions.upAndFirstNonEmpty()),
+    '_+': (dispatch) => dispatch(actions.downAndFirstNonEmpty())
 }

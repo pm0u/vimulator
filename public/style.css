@@ -368,6 +368,7 @@ a#home:hover {
 
 .lesson-button {
   width: 100%;
+  padding-right: 1%;
 }
 
 .lesson-button-text {
@@ -376,4 +377,8 @@ a#home:hover {
 
 .indicator {
   float: right;
+}
+
+#key-hint {
+  color: var(--keys);
 }

@@ -18,8 +18,8 @@ const unit1 = {
           }
         },
         "keys": {
-          "h": true,
-          "l": true
+          "_h": true,
+          "_l": true
         },
         "lessonText": [
           "This is a line of text. Move to the first character to complete the lesson!"
@@ -60,10 +60,10 @@ const unit1 = {
           }
         },
         "keys": {
-          "h": true,
-          "j": true,
-          "k": true,
-          "l": true
+          "_h": true,
+          "_j": true,
+          "_k": true,
+          "_l": true
         },
         "lessonText": [
           "This is a line of text",
@@ -111,12 +111,12 @@ const unit2 = {
           }
         },
         "keys": {
-          "0": true,
-          "^": true,
-          "_$": true,
-          "_":true,
-          "j": true,
-          "k": true
+          "_0": true,
+          "_^": true,
+          "__$": true,
+          "__":true,
+          "_j": true,
+          "_k": true
         },
         "lessonText": [
           "Move to end of this line to end the lesson.",
@@ -150,11 +150,11 @@ const unit2 = {
           }
         },
         "keys": {
-          "0": true,
-          "^": true,
-          "_$": true,
-          "-": true,
-          "+": true
+          "_0": true,
+          "_^": true,
+          "__$": true,
+          "_-": true,
+          "_+": true
         },
         "lessonText": [
           "teenage mutant ninja turtles",
