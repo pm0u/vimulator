@@ -31,3 +31,17 @@ exports.createNewUnit = (unit) => {
 exports.deleteUnitByID = (unitID) => {
     return Unit.remove({ _id: unitID })
 }
+
+exports.updateUnitByID = async (unitID, newUnit) => {
+    const unit = await Unit.findOne({ unitID })
+    if (unit.err) {
+        return ({
+            error: err
+        })
+    } else {
+        for (let key in newUnit) {
+            unit[key] = newUnit[key]
+        }
+        return unit.save()
+    }
+}

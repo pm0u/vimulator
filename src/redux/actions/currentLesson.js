@@ -18,7 +18,6 @@ export const changeCurrentLesson = (newLesson, unit) => {
     if (currentLesson) {
       dispatch(userActions.saveLesson(currentLesson['_id'], finishWindow))
       dispatch(userActions.postUserData())
-      //document.removeEventListener('keydown', keyHandler)
     }
     if (lessons && lessons[newLesson['_id']]) {
       dispatch(changeLesson(newLesson, unit))

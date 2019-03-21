@@ -81,7 +81,7 @@ router
             })
         }
     })
-    .put('/user', verify, async (req, res, next) => {
+    .put('/users', verify, async (req, res, next) => {
         const user = await usersController.updateUserByGHID(req.userCredentials.ghID, req.body)
         if (!user.error) {
             res.status(200).send(user)
@@ -137,6 +137,28 @@ router
                 message: 'Unauthorized'
             })
 
+        }
+    })
+    .put('/units/:unitID', verify, async (req, res, next) => {
+        const { ghID } = req.userCredentials
+        const { unitID } = req.params
+        if (ghID === process.env.MONGODB_ADMIN_ID) {
+            try {
+                const newUnit = await unitsController.updateUnitByID(unitID, req.body)
+                res.status(200).send(newUnit)
+            }
+            catch (error) {
+                next({
+                    message: 'New unit not created',
+                    error,
+                    status: 500
+                })
+            }
+        } else {
+            next({
+                status: 401,
+                message: 'Unauthorized'
+            })
         }
     })
 
