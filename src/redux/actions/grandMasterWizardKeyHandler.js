@@ -11,6 +11,7 @@ export default (e) => {
     if (keys[`_${key}`]) { // include underscore because mongodb can't have keys starting with $
         keyHandler[mode][`_${key}`](store.dispatch)
     } else {
+        //or don't.
         // display a warning/error/hint thing
         store.dispatch(showKeyHint(key))
     }

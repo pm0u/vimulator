@@ -6,7 +6,7 @@ import { hideKeyHint } from '../redux/actions/keyHint'
 export class KeyReminder extends Component {
     componentDidUpdate() {
         if (this.props.showHint) {
-            setTimeout(() => this.props.hideKeyHint(), 3000);
+            setTimeout(() => this.props.hideKeyHint(), 4000);
         }
     }
     renderKeyHint = () => {
