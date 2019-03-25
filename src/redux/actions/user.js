@@ -1,4 +1,5 @@
 import * as types from '../constants/userActions'
+import keyHandler from '../actions/grandMasterWizardKeyHandler'
 
 
 const fetchUserDataSuccess = user => ({
@@ -92,6 +93,11 @@ export const postUserData = () => {
     }
 }
 
-export const logOutUser = () => ({
-    type: types.LOGOUT_USER
-})
+export const logOutUser = () => {
+    return dispatch => {
+        document.removeEventListener('keydown', keyHandler)
+        dispatch({
+            type: types.LOGOUT_USER
+        })
+    }
+}
