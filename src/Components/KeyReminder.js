@@ -11,7 +11,7 @@ export class KeyReminder extends Component {
     }
     renderKeyHint = () => {
         if (this.props.showHint) {
-            const keys = Object.keys(this.props.currentLesson.lesson.keys).map(key => key[1]).join(',').replace(/,([^,]*)$/, ' or $1')
+            const keys = Object.keys(this.props.currentLesson.lesson.keys).map(key => key[1]).join(' ').replace(/\s([^\s]*)$/, ' or $1')
             return `${this.props.badKey} doesn't work for this lesson! try ${keys}`
         }
     }
