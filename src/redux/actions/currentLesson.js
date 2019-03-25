@@ -42,7 +42,7 @@ export const nextLesson = () => {
       const newUnit = units[unitIndex + 1]
       if (unitIndex < units.length - 1) {
         //there are more units
-        dispatch(changeCurrentLesson(newUnit.lessons[0]))
+        dispatch(changeCurrentLesson(newUnit.lessons[0], newUnit))
       } else {
         //no more units
         //display popo up that they should contribute
