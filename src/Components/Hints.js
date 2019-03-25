@@ -9,8 +9,30 @@ export class Hints extends Component {
     listKeys = (keys) => {
         return Object.keys(keys).map(key => key[1]).join(' ').replace(/\s([^\s]*)$/, ' and $1')
     }
-    //<button id='save' className='link-button'>save</button>
-    //<button id='load' className='link-button'>load</button>
+
+    renderAdditional = (additional, keys) => {
+        return (
+        <details open={true}>
+            <summary>Additional Hints</summary>
+            <h5>Keys</h5>
+            {this.listKeys(keys)}
+            <h5>Goals</h5>
+            {additional.map((hint, key) => {
+                return (<p key={key}>{hint}</p>)
+            })}
+        </details>)
+    }
+
+    renderResources = (resources) => {
+        return (
+            <details>
+                <summary>Additional Resources</summary>
+                {resources.map((link, i) => {
+                    return (<p key={i}><a href={link.href}>{link.text}</a></p>)
+                })}
+            </details>)
+    }
+
     renderHints = () => {
         if (this.props.currentLesson.lesson) {
             const hints = this.props.currentLesson.lesson.hints
@@ -22,16 +44,8 @@ export class Hints extends Component {
                             <p key={i}>{p}</p>
                         )
                     })}
-                    {hints.additional ? <details open={true}>
-                        <summary>Additional Hints</summary>
-                        <h5>Keys</h5>
-                        {this.listKeys(this.props.currentLesson.lesson.keys)}
-                        <h5>Goals</h5>
-                        <p>{hints.additional}</p>
-                    </details> : null}
-                    {hints.resources ? <details><summary>Additional Resources</summary> {hints.resources.map((link, i) => {
-                        return (<><a key={i} href={link.href}>{link.text}</a><br key={`b${i}`} /></>)
-                    })}</details> : null}
+                    {hints.additional ? this.renderAdditional(hints.additional, this.props.currentLesson.lesson.keys) : null}
+                    {hints.resources ? this.renderResources(hints.resources) : null}
                 </div>
             )
         } else {
