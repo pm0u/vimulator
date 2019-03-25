@@ -33,7 +33,7 @@ exports.deleteUnitByID = (unitID) => {
 }
 
 exports.updateUnitByID = async (unitID, newUnit) => {
-    const unit = await Unit.findOne({ unitID })
+    const unit = await Unit.findOne({ '_id':unitID })
     if (unit.err) {
         return ({
             error: err
