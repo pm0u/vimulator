@@ -5,6 +5,10 @@ import { restartLesson } from '../redux/actions/currentLesson'
 
 export class Hints extends Component {
 
+
+    listKeys = (keys) => {
+        return Object.keys(keys).map(key => key[1]).join(' ').replace(/\s([^\s]*)$/, ' and $1')
+    }
     //<button id='save' className='link-button'>save</button>
     //<button id='load' className='link-button'>load</button>
     renderHints = () => {
@@ -18,8 +22,11 @@ export class Hints extends Component {
                             <p key={i}>{p}</p>
                         )
                     })}
-                    {hints.additional ? <details>
+                    {hints.additional ? <details open={true}>
                         <summary>Additional Hints</summary>
+                        <h5>Keys</h5>
+                        {this.listKeys(this.props.currentLesson.lesson.keys)}
+                        <h5>Goals</h5>
                         <p>{hints.additional}</p>
                     </details> : null}
                     {hints.resources ? <details><summary>Additional Resources</summary> {hints.resources.map((link, i) => {

@@ -149,7 +149,7 @@ router
             }
             catch (error) {
                 next({
-                    message: 'New unit not created',
+                    message: 'Unit not updated',
                     error,
                     status: 500
                 })
