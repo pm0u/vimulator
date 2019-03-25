@@ -5,15 +5,36 @@ import { bindActionCreators } from 'redux'
 
 export class Lesson extends Component {
 
+  state = {
+    buttonClassList: [],
+  }
+
+  componentDidMount = () => {
+    const buttonClassList = this.buttonClasses()
+    this.setState({ buttonClassList })
+  }
+
+  buttonClasses = () => {
+    const buttonClassList = ['link-button', 'lesson-button']
+    if (this.props.currentLesson && this.props.currentLesson['_id'] === this.props.lesson['_id']) buttonClassList.push('current-lesson')
+    return buttonClassList
+  }
+
+  onClick = () => {
+    this.button.blur()
+    this.props.changeCurrentLesson(this.props.lesson, this.props.unit)
+  }
+
   render() {
     return (
       <li>
         <button
-          onClick={() => this.props.changeCurrentLesson(this.props.lesson, this.props.unit)}
-          className={`link-button lesson-button ${this.props.currentLesson && this.props.currentLesson['_id'] === this.props.lesson['_id'] ? 'current-lesson' : null}`}>
-            <span className='lesson-button-text'>{this.props.user.lessons && this.props.user.lessons[this.props.lesson['_id']] && this.props.user.lessons[this.props.lesson['_id']].completed ? '✔ ' : '- '}
+          ref={button => { this.button = button }}
+          onClick={this.onClick}
+          className={this.state.buttonClassList.join(' ')}>
+          <span className='lesson-button-text'>{this.props.user.lessons && this.props.user.lessons[this.props.lesson['_id']] && this.props.user.lessons[this.props.lesson['_id']].completed ? '✔ ' : '- '}
             {this.props.lesson.name}</span>
-            <span className='indicator'>{this.props.currentLesson && this.props.currentLesson['_id'] === this.props.lesson['_id'] ? '🡄' : null}</span>
+          <span className='indicator'>{this.props.currentLesson && this.props.currentLesson['_id'] === this.props.lesson['_id'] ? '🡄' : null}</span>
         </button>
       </li>
     )
