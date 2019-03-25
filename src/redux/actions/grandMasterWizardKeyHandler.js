@@ -2,6 +2,14 @@ import store from   '../store'
 import keyHandler from './keys'
 import { showKeyHint } from './keyHint'
 
+
+const ignoreKeys = {
+    'Shift':true,
+    'Alt':true,
+    'Meta':true,
+    'Control':true
+}
+
 export default (e) => {
     // the grandMasterWizardKeyHandler decreeth:
     // let the keyboard do things!
@@ -13,6 +21,6 @@ export default (e) => {
     } else {
         //or don't.
         // display a warning/error/hint thing
-        store.dispatch(showKeyHint(key))
+        if (!ignoreKeys[key]) store.dispatch(showKeyHint(key))
     }
 }
