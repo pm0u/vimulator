@@ -75,7 +75,7 @@ export const postUserData = () => {
     return async (dispatch, getState) => {
         const user = getState().user
         dispatch(postUserDataStart())
-        const userResponse = await fetch('/api/user', {
+        const userResponse = await fetch('/api/users', {
             method: 'PUT',
             body: JSON.stringify(user),
             headers: {
