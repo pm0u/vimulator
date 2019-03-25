@@ -7,13 +7,38 @@ import Cookies from 'universal-cookie'
 
 export class Login extends Component {
 
+    state = {
+        trexMode: false
+    }
+
+    componentDidMount = () => {
+        document.addEventListener('keydown', this.trexMode)
+    }
+
+    trexMode = (e) => {
+        const key = e.key
+        if (key === 'PageDown') {
+            this.setState(prevState => ({
+                trexMode: !prevState.trexMode
+            }))
+        }
+    }
+
     renderLogin = () => {
         if (this.props.user.displayName) {
-            return (
-                <>
-                <p>{`Logged in as ${this.props.user.displayName} `}(<button className='link-button' onClick={this.logout}>logout</button>)</p>
+            if (this.state.trexMode) {
+                return (<>
+                    <p>{`🦖 Welcome back, Mr T-Rex! 🦖 `}(<button className='link-button' onClick={this.logout}>logout</button>)</p>
                 </>
-            )
+                )
+            } else {
+
+                return (
+                    <>
+                        <p>{`Logged in as ${this.props.user.displayName} `}(<button className='link-button' onClick={this.logout}>logout</button>)</p>
+                    </>
+                )
+            }
         } else {
             return <button className='link-button' onClick={this.props.toggleLoginWindow}>log in to save progress</button>
         }
