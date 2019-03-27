@@ -112,6 +112,7 @@ const unit2 = {
       "keys": {
         "_0": true,
         "_^": true,
+        "__": true,
         "_$": true,
         "_j": true,
         "_k": true
