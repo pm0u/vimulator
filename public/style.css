@@ -1,384 +1,366 @@
 html {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%
 }
 
 * {
-  font-family: 'Fira Mono', monospace;
+    font-family: 'Fira Mono', monospace
 }
 
 body {
-  width: 100%;
-  height: 100%;
-  color: var(--fg);
-  margin: 0;
-  background: var(--bg);
+    width: 100%;
+    height: 100%;
+    color: var(--fg);
+    margin: 0;
+    background: var(--bg)
 }
 
 #root {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-areas: 'header header header'
-    'lessons vim hints'
-    'footer footer footer';
-  grid-template-columns: 300px minmax(300px, 1fr) minmax(300px, 400px);
-  grid-template-rows: min-content 1fr min-content;
-  grid-auto-rows: 0px;
-  grid-auto-columns: 0px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'header header header''lessons vim hints''footer footer footer';
+    grid-template-columns: 300px minmax(300px, 1fr) minmax(300px, 400px);
+    grid-template-rows: min-content 1fr min-content;
+    grid-auto-rows: 0;
+    grid-auto-columns: 0;
+    overflow-y: hidden;
+    overflow-x: hidden
 }
 
 main#resources ul {
-  list-style: none;
+    list-style: none
 }
 
 main#resources ul li {
-  padding-top: .1em;
+    padding-top: .1em
 }
 
 summary {
-  cursor: pointer;
-  outline-style: none;
+    cursor: pointer;
+    outline-style: none
 }
 
 main#resources {
-  grid-area: vim;
-  padding: .1em .5em .1em .5em;
-  overflow-y: scroll;
+    grid-area: vim;
+    padding: .1em .5em;
+    overflow-y: scroll
 }
 
 div#vim-box {
-  grid-area: vim;
+    grid-area: vim
 }
 
 div#vim-content {
-  height: 100%;
-  display: grid;
-  grid-template-areas: 'vim vim'
-    'command-bar command-bar';
-  grid-template-rows: 9fr min-content;
-  grid-template-columns: min-content 1fr;
-  padding: 0;
-  position: relative;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'vim vim''command-bar command-bar';
+    grid-template-rows: 9fr min-content;
+    grid-template-columns: min-content 1fr;
+    padding: 0;
+    position: relative
 }
 
 #lessons {
-  grid-area: lessons;
-  border-right: 2px dashed var(--base1);
-  padding: .1em;
+    grid-area: lessons;
+    border-right: 2px dashed var(--base1);
+    padding: .1em
 }
 
 footer {
-  grid-area: footer;
-  text-align: center;
-  background: var(--bg);
-  border-top: 2px solid var(--base1);
-  padding: 0 .5em 0 .5em;
-  display: flex;
-  flex-grow: 0;
-  align-items: center;
-  justify-content: space-around;
+    grid-area: footer;
+    text-align: center;
+    background: var(--bg);
+    border-top: 2px solid var(--base1);
+    padding: 0 .5em;
+    display: flex;
+    flex-grow: 0;
+    align-items: center;
+    justify-content: space-around
 }
 
 header {
-  padding: 0 .5em 0 .5em;
-  grid-area: header;
-  background: var(--bg-highlights);
-  border-bottom: 2px solid var(--base1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    padding: 0 .5em;
+    grid-area: header;
+    background: var(--bg-highlights);
+    border-bottom: 2px solid var(--base1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center
 }
 
 #hints {
-  grid-area: hints;
-  border-left: 2px dashed var(--base1);
-  display: grid;
-  grid-template-rows: 1fr min-content;
-  overflow-y: hidden;
-  overflow-x: hidden;
+    grid-area: hints;
+    border-left: 2px dashed var(--base1);
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    overflow-y: hidden;
+    overflow-x: hidden
 }
 
 #hints-content {
-  padding: 0 .5em 0 .5em;
-  overflow-y: scroll;
+    padding: 0 .5em;
+    overflow-y: scroll
 }
 
 #save-reset {
-  background-color: var(--bg-highlights);
-  padding: .1em .5em 0 .5em;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    background-color: var(--bg-highlights);
+    padding: .1em .5em 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
 }
 
 #vim-text {
-  grid-area: vim;
-  height: 100%;
+    grid-area: vim;
+    height: 100%
 }
 
 .line-nos {
-  color: var(--base1);
-  display: inline-block;
-  text-align: right;
-  width: 3ch;
-  padding-right: .2em;
-  padding-left: .5em;
-  /*background-color: var(--bg-highlights);*/
+    color: var(--base1);
+    display: inline-block;
+    text-align: right;
+    width: 3ch;
+    padding-right: .2em;
+    padding-left: .5em
 }
 
 #command-bar {
-  grid-area: command-bar;
-  width: 100%;
-  display: grid;
-  grid-template-areas: 'mode posdisplay';
-  background-color: var(--bg-highlights);
-  padding-top: .1em;
+    grid-area: command-bar;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'mode posdisplay';
+    background-color: var(--bg-highlights);
+    padding-top: .1em
 }
 
 #pos-div {
-  grid-area: posdisplay;
-  margin: auto;
-}
-
-#cursor-position {
-  margin: 0;
+    grid-area: posdisplay;
+    margin: auto
 }
 
 #mode {
-  grid-area: mode;
-  margin: 0;
-  padding: 0 0 0 .5em;
+    grid-area: mode;
+    margin: 0;
+    padding: 0 0 0 .5em
 }
 
 span.mode {
-  color: var(--modes);
-  font-weight: bold;
+    color: var(--modes);
+    font-weight: 700
 }
 
 span.key {
-  color: var(--keys);
-  font-weight: bold;
+    color: var(--keys);
+    font-weight: 700
 }
 
 .mode-normal-cursor {
-  background: var(--fg);
-  color: var(--bg);
+    background: var(--fg);
+    color: var(--bg)
 }
 
 .line-no {
-  color: var(--base1);
+    color: var(--base1)
 }
 
 nav ul {
-  padding: 0;
+    padding: 0
 }
 
 nav ul,
 nav li {
-  display: inline;
-  list-style: none;
-  padding: 0 .4em 0 .4em;
+    display: inline;
+    list-style: none;
+    padding: 0 .4em
 }
 
 #main-heading {
-  display: inline-block;
+    display: inline-block
 }
 
 a {
-  text-decoration: none;
-  color: var(--link);
-}
-
-a:hover {
-  color: var(--accent);
+    text-decoration: none;
+    color: var(--link)
 }
 
 .link-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  display: inline;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  color: var(--link);
-  font-size: 1em;
-
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: var(--link);
+    font-size: 1em
 }
 
-.link-button:hover {
-  color: var(--accent);
+.link-button:hover,
+a:hover {
+    color: var(--accent)
 }
 
 #ulator {
-  font-style: italic;
+    font-style: italic
 }
 
 #mocha {
-  grid-area: mocha;
+    grid-area: mocha
 }
 
 #lessons ul li {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0
 }
 
-#lessons ul {
-  margin: 0;
+#lessons ul,
+#cursor-position {
+    margin: 0
 }
 
 div#footer-list {
-  overflow: hidden;
+    overflow: hidden
 }
 
 ul#footer-content {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-left: -5px;
-  list-style: none;
-  padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: -5px;
+    list-style: none;
+    padding: 0
 }
 
 ul#footer-content li {
-  flex-grow: 0;
-  margin: .25em 0;
-  padding: 0 1em;
-  text-align: center;
-  border-left: 1px solid #ccc;
+    flex-grow: 0;
+    margin: .25em 0;
+    padding: 0 1em;
+    text-align: center;
+    border-left: 1px solid #ccc
 }
 
 span.emph {
-  font-style: italic;
-  font-weight: bold;
+    font-style: italic;
+    font-weight: 700
 }
 
 .social-buttons {
-  padding: 5%;
+    padding: 5%
 }
 
 .pop-up-div {
-  background-color: var(--bg-highlights);
-  filter: opacity(80%);
-  position: absolute;
-  width: 60%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1em;
-  border-radius: 5px;
-  text-align: center;
+    background-color: var(--bg-highlights);
+    filter: opacity(80%);
+    position: absolute;
+    width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1em;
+    border-radius: 5px;
+    text-align: center
 }
 
 .login-window {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    height: 100%
 }
 
-
 .blur {
-  filter: blur(2px);
+    filter: blur(2px)
 }
 
 a#home {
-  color: var(--fg-highlights);
+    color: var(--fg-highlights)
 }
 
 a#home:hover {
-  text-decoration: underline;
+    text-decoration: underline
 }
 
 .subtle-textbox {
-  font-family: 'Fira Mono';
-  background-color: var(--bg);
-  outline: none;
-  border: none;
-  margin: .4em;
-  padding: 5px 5px;
+    font-family: 'Fira Mono';
+    background-color: var(--bg);
+    outline: none;
+    border: none;
+    margin: .4em;
+    padding: 5px
 }
 
 .subtle-btn {
-  font-family: 'Fira Mono';
-  color: var(--fg);
-  background-color: var(--bg);
-  border: 1px solid var(--base1);
-  margin: .2em;
+    font-family: 'Fira Mono';
+    color: var(--fg);
+    background-color: var(--bg);
+    border: 1px solid var(--base1);
+    margin: .2em
 }
 
 .code-line {
-  white-space: pre-wrap;
-  word-break: break-all;
-  overflow-wrap: break-word;
-  display: inline;
-  padding-left: 1%;
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    display: inline;
+    padding-left: 1%
 }
 
 .subtle-drop {
-  font-family: 'Fira Mono';
-  background-color: var(--bg);
-  outline: none;
-  border: none;
-  margin: .2em;
-  padding: 5px 5px;
-
+    font-family: 'Fira Mono';
+    background-color: var(--bg);
+    outline: none;
+    border: none;
+    margin: .2em;
+    padding: 5px
 }
 
-/* width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+    background: var(--bg)
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-highlights);
+    background: var(--bg-highlights)
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--base1);
+    background: var(--base1)
 }
 
 .finish-buttons {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%
 }
 
 .button-text {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between
 }
 
 .lesson-button {
-  width: 100%;
-  padding-right: 1%;
+    width: 100%;
+    padding-right: 1%
 }
 
 .lesson-button-text {
-  float: left;
+    float: left
 }
 
 .indicator {
-  float: right;
+    float: right
 }
 
 #key-hint {
-  color: var(--keys);
+    color: var(--keys)
 }
