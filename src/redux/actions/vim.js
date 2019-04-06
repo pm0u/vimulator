@@ -124,6 +124,42 @@ export const upAndFirstNonEmpty = () => {
 
 export const awaitCharToMoveTo = (key) => {
     return (dispatch, getState) => {
-
+        const { vim: { cursorPos }, currentLesson: { lesson: lessonText } } = getState()
+        document.removeEventListener('keydown', keyhandler)
+        document.addEventListener('keydown', goToChar[key](dispatch, cursorPos, lessonText))
     }
+}
+
+export const endAwaitCharToMoveTo = (reference) => {
+    document.removeEventListener('keydown', reference)
+    document.addEventListener('keydown', keyhandler)
+}
+
+const goToChar = {
+    'f': (dispatch, cursorPos, lessonText) => toNextChar(e),
+    'F': (dispatch, cursorPos, lessonText) => toPrevChar(e),
+    't': (dispatch, cursorPos, lessonText) => beforeNextChar(e),
+    'T': (dispatch, cursorPos, lessonText) => beforePrevChar(e)
+}
+
+const toNextChar = (e) => {
+    const key = e.key
+    const newCol = lessonText[cursorPos.row].slice(cursorPos.col).indexOf(key)
+    if (newCol === -1) {
+        endAwaitCharToMoveTo()
+    } else {
+        dispatch(changeCursorPos({col: newCol + cursorPos.col, row: cursorPos.row}))
+    }
+}
+
+const toPrevChar = (dispatch, cursorPos, lessonText) => {
+
+}
+
+const beforeNextChar = (dispatch, cursorPos, lessonText) => {
+
+}
+
+const beforePrevChar = (dispatch, cursorPos, lessonText) => {
+
 }
