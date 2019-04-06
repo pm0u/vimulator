@@ -3,12 +3,7 @@ const router = express.Router()
 const usersController = require('../controllers/usersController')
 const unitsController = require('../controllers/unitsController')
 const jwt = require('jsonwebtoken')
-const localUnitsObj = require('../src/units')
-const localUnits = []
-
-for (let unit in localUnitsObj) {
-    localUnits.push(localUnitsObj[unit])
-}
+const localUnits = require('../src/units')
 
 require('dotenv').config()
 
