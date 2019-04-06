@@ -1,6 +1,7 @@
 import * as types from '../constants/vimActions'
 import { checkFinishCondition } from './finishCondition'
 import keyhandler from './grandMasterWizardKeyHandler'
+import store from '../store'
 
 export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     type: types.CHANGE_CURSOR_POS,
@@ -122,44 +123,48 @@ export const upAndFirstNonEmpty = () => {
     }
 }
 
-export const awaitCharToMoveTo = (key) => {
-    return (dispatch, getState) => {
-        const { vim: { cursorPos }, currentLesson: { lesson: lessonText } } = getState()
-        document.removeEventListener('keydown', keyhandler)
-        document.addEventListener('keydown', goToChar[key](dispatch, cursorPos, lessonText))
-    }
-}
 
 export const endAwaitCharToMoveTo = (reference) => {
     document.removeEventListener('keydown', reference)
     document.addEventListener('keydown', keyhandler)
 }
 
-const goToChar = {
-    'f': (dispatch, cursorPos, lessonText) => toNextChar(e),
-    'F': (dispatch, cursorPos, lessonText) => toPrevChar(e),
-    't': (dispatch, cursorPos, lessonText) => beforeNextChar(e),
-    'T': (dispatch, cursorPos, lessonText) => beforePrevChar(e)
-}
-
 const toNextChar = (e) => {
+    const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
     const key = e.key
-    const newCol = lessonText[cursorPos.row].slice(cursorPos.col).indexOf(key)
-    if (newCol === -1) {
-        endAwaitCharToMoveTo()
-    } else {
-        dispatch(changeCursorPos({col: newCol + cursorPos.col, row: cursorPos.row}))
+    const newCol = lessonText[cursorPos.row].slice(cursorPos.col + 1).indexOf(key)
+    if (newCol !== -1 && key !== 'Escape') {
+        store.dispatch(changeCursorCol(newCol + 1))
     }
+    endAwaitCharToMoveTo(goToChar['f'])
 }
 
-const toPrevChar = (dispatch, cursorPos, lessonText) => {
+const toPrevChar = (e) => {
+    const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
+    const key = e.key
 
 }
 
-const beforeNextChar = (dispatch, cursorPos, lessonText) => {
+const beforeNextChar = (e) => {
+    const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
+    const key = e.key
 
 }
 
-const beforePrevChar = (dispatch, cursorPos, lessonText) => {
+const beforePrevChar = (e) => {
+    const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
+    const key = e.key
 
+}
+
+export const awaitCharToMoveTo = (key) => {
+    document.removeEventListener('keydown', keyhandler)
+    document.addEventListener('keydown', goToChar[key])
+}
+
+const goToChar = {
+    'f': toNextChar,
+    'F': toPrevChar,
+    't': beforeNextChar,
+    'T': beforePrevChar
 }

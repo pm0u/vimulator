@@ -176,6 +176,51 @@ const unit2 = {
           "Complete the lesson by moving to the first non-empty character of the last line."
         ]
       }
+    },
+    {
+      "name": "Test with f enabled",
+      "vimState": {
+        "cursorPos": {
+          "col": 10,
+          "row": 0
+        },
+        "mode": "NORMAL",
+        "furthestCol": 10
+      },
+      "finishCond": {
+        "cursorPos": {
+          "col": 6,
+          "row": 3
+        }
+      },
+      "keys": {
+        "_0": true,
+        "_^": true,
+        "_$": true,
+        "_-": true,
+        "__": true,
+        "_+": true,
+        "_j": true,
+        "_k": true,
+        "_h": true,
+        "_l": true,
+        "_f": true
+      },
+      "lessonText": [
+        "teenage mutant ninja turtles,",
+        "  teenage mutant ninja turtles,",
+        "    turtles in a half shell!",
+        "      TURTLE POWER!!!!!!"
+      ],
+      "hints": {
+        "title": "this is a test lesson with the f key enabled",
+        "text": [
+          "+ and - combine some of the movements that we learned in the last couple lessons. - will move up a line and go to the first non empty character (like pressing k ^). + will move down a line and go to first non empty character (like pressing j ^)."
+        ],
+        "additional": [
+          "Complete the lesson by moving to the first non-empty character of the last line."
+        ]
+      }
     }
   ]
 }
