@@ -124,7 +124,7 @@ export const upAndFirstNonEmpty = () => {
 }
 
 
-export const endAwaitCharToMoveTo = (reference) => {
+const endAwaitCharToMoveTo = (reference) => {
     document.removeEventListener('keydown', reference)
     document.addEventListener('keydown', keyhandler)
 }
