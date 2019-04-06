@@ -1,5 +1,6 @@
 import * as types from '../constants/vimActions'
 import { checkFinishCondition } from './finishCondition'
+import keyhandler from './grandMasterWizardKeyHandler'
 
 export const changeCursorPos = (position = { col: 0, row: 0 }) => ({
     type: types.CHANGE_CURSOR_POS,
@@ -118,5 +119,11 @@ export const upAndFirstNonEmpty = () => {
             dispatch(firstNonEmpty())
         }
         dispatch(checkFinishCondition())
+    }
+}
+
+export const awaitCharToMoveTo = (key) => {
+    return (dispatch, getState) => {
+
     }
 }
