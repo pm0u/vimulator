@@ -1,13 +1,13 @@
-import { unit1 } from '../src/units'
+const units = require('../src/units')
 export const initialState = {
-    units: [unit1],
+    units,
     vim: {
-        cursorPos: unit1.lessons[0].vimState.cursorPos,
+        cursorPos: units[0].lessons[0].vimState.cursorPos,
         mode: 'NORMAL',
-        furthestCol: unit1.lessons[0].vimState.cursorPos.col
+        furthestCol: units[0].lessons[0].vimState.cursorPos.col
     },
     currentLesson: {
-        lesson: unit1.lessons[0],
+        lesson: units[0].lessons[0],
         keyHandler: null
     },
     user: {

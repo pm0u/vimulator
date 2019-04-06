@@ -10,5 +10,9 @@ export default {
     '_^': (dispatch) => dispatch(actions.firstNonEmpty()),
     '__': (dispatch) => dispatch(actions.firstNonEmpty()),
     '_-': (dispatch) => dispatch(actions.upAndFirstNonEmpty()),
-    '_+': (dispatch) => dispatch(actions.downAndFirstNonEmpty())
+    '_+': (dispatch) => dispatch(actions.downAndFirstNonEmpty()),
+    '_f': () => actions.awaitCharToMoveTo('f'),
+    '_F': () => actions.awaitCharToMoveTo('F'),
+    '_t': () => actions.awaitCharToMoveTo('t'),
+    '_T': () => actions.awaitCharToMoveTo('T'),
 }

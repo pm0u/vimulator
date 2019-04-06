@@ -8,7 +8,7 @@ import keyHandler from '../src/redux/actions/grandMasterWizardKeyHandler'
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
-describe('Current lesson actions', () => {
+xdescribe('Current lesson actions', () => {
     xit('should change current lesson', () => {
         const store = mockStore(initialState)
         const unit = store.getState().units[0]
