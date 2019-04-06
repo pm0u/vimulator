@@ -2,7 +2,7 @@ import * as types from '../src/redux/constants/currentLessonActions'
 import reducer from '../src/redux/reducers/currentLesson'
 import { unit1 } from '../src/units'
 
-describe('lessons reducer', () => {
+xdescribe('lessons reducer', () => {
     it('should return initial state', () => {
         const initialState = {
             lesson: null,
