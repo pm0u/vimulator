@@ -24,3 +24,10 @@ I would like the website to mimic the look of vim in the terminal as much as pos
 ### ERD
 
 This project utilizes mongoDB and does not have any relational data. There are validations available in the models directory.
+
+
+### Functionality implemented!
+
+This is (and likely forever will be) a work in progess. There is a ton of functionality to implement.
+
+So far, we have normal mode with the following keys implemented: h,j,k,l,_,$,0,^,f,t,F,T,+,-
