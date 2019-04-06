@@ -3,11 +3,16 @@ const router = express.Router()
 const usersController = require('../controllers/usersController')
 const unitsController = require('../controllers/unitsController')
 const jwt = require('jsonwebtoken')
+const localUnitsObj = require('../src/units')
+const localUnits = []
+
+for (let unit in localUnitsObj) {
+    localUnits.push(localUnitsObj[unit])
+}
+
 require('dotenv').config()
 
 const privateKey = process.env.JWT_PRIVATE_KEY
-const publicKey = process.env.JWT_PUBLIC_KEY
-
 
 const verify = function (req, res, next) {
     jwt.verify(req.cookies.token, privateKey,
@@ -95,7 +100,13 @@ router
     })
 
 router
-    .get('/units', unitsController.getAllUnits)
+    .get('/units', (req, res) => {
+        if (process.env.NODE_ENV === 'production') {
+            unitsController.getAllUnits(req, res)
+        } else {
+            res.status(200).json(localUnits)
+        }
+    })
     .get('/units/:unitID', unitsController.getUnitByID)
     .post('/units', verify, async (req, res, next) => {
         const { ghID } = req.userCredentials

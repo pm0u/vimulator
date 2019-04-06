@@ -132,9 +132,9 @@ export const endAwaitCharToMoveTo = (reference) => {
 const toNextChar = (e) => {
     const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
     const key = e.key
-    const newCol = lessonText[cursorPos.row].slice(cursorPos.col + 1).indexOf(key)
-    if (newCol !== -1 && key !== 'Escape') {
-        store.dispatch(changeCursorCol(newCol + 1))
+    const distanceToLetter = lessonText[cursorPos.row].slice(cursorPos.col + 1).indexOf(key) + 1
+    if (distanceToLetter !== -1 && key !== 'Escape') {
+        store.dispatch(changeCursorCol(distanceToLetter))
     }
     endAwaitCharToMoveTo(goToChar['f'])
 }
@@ -142,19 +142,31 @@ const toNextChar = (e) => {
 const toPrevChar = (e) => {
     const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
     const key = e.key
-
+    const distanceToLetter = lessonText[cursorPos.row].slice(0, cursorPos.col).split('').reverse().join('').indexOf(key) + 1
+    if (distanceToLetter !== -1 && key !== 'Escape') {
+        store.dispatch(changeCursorCol(-(distanceToLetter)))
+    }
+    endAwaitCharToMoveTo(goToChar['F'])
 }
 
 const beforeNextChar = (e) => {
     const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
     const key = e.key
-
+    const distanceToLetter = lessonText[cursorPos.row].slice(cursorPos.col + 1).indexOf(key)
+    if (distanceToLetter !== -1 && key !== 'Escape') {
+        store.dispatch(changeCursorCol(distanceToLetter))
+    }
+    endAwaitCharToMoveTo(goToChar['t'])
 }
 
 const beforePrevChar = (e) => {
     const { vim: { cursorPos }, currentLesson: { lesson: { lessonText } } } = store.getState()
     const key = e.key
-
+    const distanceToLetter = lessonText[cursorPos.row].slice(0, cursorPos.col).split('').reverse().join('').indexOf(key)
+    if (distanceToLetter !== -1 && key !== 'Escape') {
+        store.dispatch(changeCursorCol(-(distanceToLetter)))
+    }
+    endAwaitCharToMoveTo(goToChar['T'])
 }
 
 export const awaitCharToMoveTo = (key) => {

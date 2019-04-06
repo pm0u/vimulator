@@ -179,6 +179,7 @@ const unit2 = {
     },
     {
       "name": "Test with f enabled",
+      "_id": "5ca920f13057251ed6b8ad8a",
       "vimState": {
         "cursorPos": {
           "col": 10,
@@ -204,7 +205,10 @@ const unit2 = {
         "_k": true,
         "_h": true,
         "_l": true,
-        "_f": true
+        "_f": true,
+        "_F": true,
+        "_t": true,
+        "_T": true
       },
       "lessonText": [
         "teenage mutant ninja turtles,",
@@ -225,7 +229,12 @@ const unit2 = {
   ]
 }
 
-export {
+//export {
+//  unit1,
+//  unit2
+//}
+
+module.exports = {
   unit1,
   unit2
 }
