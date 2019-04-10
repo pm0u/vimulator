@@ -18,7 +18,8 @@ router
     .get('/github/callback', passport.authenticate('github'), async (req, res) => {
         const { id: ghID, displayName, username } = req.user.profile
 
-        let user = await usersController.getUserById(ghID)[0]
+        let userResponse = await usersController.getUserById(ghID)
+        let user = userResponse[0]
 
         if (!user) {
             user = await usersController.newUserAtLogin({ displayName, ghID, username })
